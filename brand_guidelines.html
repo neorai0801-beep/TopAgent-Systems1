@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TopAgent Systems — Brand Guidelines</title>
+<link rel="stylesheet" href="css/styles.css">
+<style>
+
+/* ── Brand Guidelines page styles ──────────────────── */
+
+.brand-hero {
+  background: var(--navy-d);
+  padding: 120px 32px 80px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.brand-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(230,51,41,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(230,51,41,0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+.brand-hero-inner { position: relative; z-index: 1; }
+.brand-version {
+  display: inline-block;
+  background: rgba(230,51,41,0.12);
+  border: 1px solid rgba(230,51,41,0.25);
+  border-radius: 100px;
+  padding: 5px 18px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #ff7b73;
+  margin-bottom: 20px;
+}
+.brand-hero h1 { color: var(--white); margin-bottom: 14px; }
+.brand-hero p  { color: var(--mgrey); font-size: 1.05rem; max-width: 560px; margin: 0 auto; }
+
+/* ── Section labels ─────────────────────────────────── */
+.bg-label {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 0.7rem; font-weight: 800; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--mgrey);
+  margin-bottom: 36px;
+}
+.bg-label::before, .bg-label::after {
+  content: ''; flex: 1; height: 1px;
+  background: rgba(11,27,58,0.1);
+  width: 40px;
+}
+
+/* ── Logo showcase ──────────────────────────────────── */
+.logo-showcase {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 40px;
+}
+.logo-panel {
+  border-radius: 20px;
+  padding: 56px 40px;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 20px;
+  position: relative;
+  overflow: hidden;
+}
+.logo-panel.dark  { background: var(--navy); }
+.logo-panel.light { background: var(--lgrey); border: 1px solid rgba(11,27,58,0.07); }
+.logo-panel-label {
+  position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%);
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 1.5px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.logo-panel.dark  .logo-panel-label { color: rgba(255,255,255,0.3); }
+.logo-panel.light .logo-panel-label { color: var(--mgrey); }
+
+/* Large logo display */
+.logo-xl { display: flex; align-items: center; gap: 16px; }
+.logo-xl .bolt { width: 44px; height: 44px; }
+.logo-xl .bolt svg { width: 100%; height: 100%; }
+.logo-xl .wordmark { display: flex; flex-direction: column; gap: 2px; }
+.logo-xl .wm-top {
+  font-size: 1.85rem; font-weight: 900; line-height: 1;
+  letter-spacing: -0.5px;
+}
+.logo-xl .wm-bot {
+  font-size: 0.65rem; font-weight: 400; letter-spacing: 6px;
+  text-transform: uppercase;
+}
+.logo-panel.dark  .wm-top { color: var(--white); }
+.logo-panel.dark  .wm-bot { color: var(--mgrey); }
+.logo-panel.light .wm-top { color: var(--navy); }
+.logo-panel.light .wm-bot { color: var(--mgrey); }
+
+/* Logo anatomy */
+.anatomy-wrap {
+  background: var(--navy);
+  border-radius: 20px;
+  padding: 56px 48px;
+  margin-top: 24px;
+  position: relative;
+}
+.anatomy-logo { display: flex; align-items: center; gap: 20px; margin: 0 auto; width: fit-content; }
+.anatomy-bolt { width: 56px; height: 56px; }
+.anatomy-bolt svg { width: 100%; height: 100%; }
+.anatomy-text { display: flex; flex-direction: column; gap: 2px; }
+.anatomy-top { font-size: 2.2rem; font-weight: 900; color: var(--white); letter-spacing: -0.5px; line-height: 1; }
+.anatomy-sub { font-size: 0.72rem; font-weight: 400; color: var(--mgrey); letter-spacing: 6px; text-transform: uppercase; }
+
+.anatomy-callouts {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 20px; margin-top: 40px;
+}
+.anatomy-item {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 12px; padding: 20px;
+  text-align: center;
+}
+.anatomy-item .anat-num {
+  font-size: 1.8rem; font-weight: 900; font-family: 'Courier New', monospace;
+  color: var(--red); opacity: 0.35; line-height: 1; margin-bottom: 8px;
+}
+.anatomy-item h4 { font-size: 0.85rem; color: var(--white); margin-bottom: 6px; }
+.anatomy-item p  { font-size: 0.78rem; color: var(--mgrey); line-height: 1.55; }
+
+/* ── Color palette ──────────────────────────────────── */
+.color-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  margin-top: 40px;
+}
+.color-card {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(11,27,58,0.10);
+}
+.color-swatch { height: 120px; position: relative; }
+.color-swatch.has-border { border: 1px solid rgba(11,27,58,0.10); }
+.color-check {
+  position: absolute; bottom: 12px; left: 12px;
+  width: 28px; height: 28px; border-radius: 50%;
+  background: rgba(255,255,255,0.18);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.8rem;
+}
+.color-info {
+  background: var(--white);
+  border: 1px solid rgba(11,27,58,0.07);
+  border-top: none;
+  padding: 16px;
+  border-radius: 0 0 16px 16px;
+}
+.color-name  { font-size: 0.8rem; font-weight: 800; color: var(--navy); margin-bottom: 4px; }
+.color-hex   { font-size: 0.82rem; font-family: 'Courier New', monospace; color: var(--dgrey); font-weight: 700; margin-bottom: 8px; }
+.color-specs { font-size: 0.68rem; color: var(--mgrey); line-height: 1.7; }
+
+/* Extended palette */
+.color-extended {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 14px; margin-top: 28px;
+}
+.color-ext-card {
+  display: flex; align-items: center; gap: 14px;
+  background: var(--lgrey);
+  border-radius: 12px; padding: 16px;
+}
+.color-ext-swatch {
+  width: 40px; height: 40px; border-radius: 8px; flex-shrink: 0;
+}
+.color-ext-name  { font-size: 0.82rem; font-weight: 700; color: var(--navy); }
+.color-ext-hex   { font-size: 0.75rem; font-family: 'Courier New', monospace; color: var(--mgrey); margin-top: 2px; }
+
+/* Usage rules */
+.color-usage {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 20px; margin-top: 40px;
+}
+.usage-card {
+  background: var(--lgrey); border-radius: 16px; padding: 28px;
+}
+.usage-card h4 { font-size: 0.85rem; margin-bottom: 16px; }
+.usage-item {
+  display: flex; align-items: flex-start; gap: 10px;
+  font-size: 0.82rem; color: var(--dgrey);
+  margin-bottom: 10px; line-height: 1.55;
+}
+.usage-dot {
+  width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; margin-top: 5px;
+}
+
+/* ── Typography ─────────────────────────────────────── */
+.type-display {
+  background: var(--navy);
+  border-radius: 20px;
+  padding: 52px;
+  margin-top: 40px;
+  text-align: center;
+}
+.type-family {
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-weight: 900;
+  color: var(--white);
+  letter-spacing: -1px;
+  margin-bottom: 8px;
+}
+.type-specimen {
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--mgrey);
+  letter-spacing: 4px;
+}
+
+.type-scale {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 20px; margin-top: 32px;
+}
+.type-row {
+  background: var(--lgrey);
+  border-radius: 14px; padding: 24px 28px;
+  display: flex; align-items: center;
+  justify-content: space-between; gap: 16px;
+}
+.type-sample { color: var(--navy); line-height: 1.2; }
+.type-meta   { text-align: left; white-space: nowrap; }
+.type-meta .t-size   { font-size: 0.72rem; font-family: 'Courier New', monospace; color: var(--red); font-weight: 700; }
+.type-meta .t-weight { font-size: 0.68rem; color: var(--mgrey); margin-top: 3px; }
+
+.type-weights {
+  display: grid; grid-template-columns: repeat(5, 1fr);
+  gap: 14px; margin-top: 28px;
+}
+.weight-card {
+  background: var(--lgrey); border-radius: 14px;
+  padding: 24px 20px; text-align: center;
+}
+.weight-letter { font-size: 2.4rem; color: var(--navy); line-height: 1; margin-bottom: 10px; }
+.weight-name   { font-size: 0.72rem; font-weight: 700; color: var(--navy); }
+.weight-num    { font-size: 0.68rem; font-family: 'Courier New', monospace; color: var(--mgrey); margin-top: 2px; }
+
+/* ── Logo Usage Rules ───────────────────────────────── */
+.rules-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 20px; margin-top: 40px;
+}
+.rule-card {
+  border-radius: 16px; overflow: hidden;
+}
+.rule-preview {
+  padding: 40px 32px;
+  display: flex; align-items: center; justify-content: center;
+  min-height: 140px;
+}
+.rule-footer {
+  padding: 14px 20px;
+  display: flex; align-items: center; gap: 10px;
+}
+.rule-card.do   .rule-footer { background: rgba(34,197,94,0.08); border: 1px solid rgba(34,197,94,0.15); border-top: none; border-radius: 0 0 16px 16px; }
+.rule-card.dont .rule-footer { background: rgba(230,51,41,0.06); border: 1px solid rgba(230,51,41,0.12); border-top: none; border-radius: 0 0 16px 16px; }
+.rule-card.do   .rule-preview { background: var(--navy); border-radius: 16px 16px 0 0; }
+.rule-card.dont .rule-preview { background: var(--lgrey); border-radius: 16px 16px 0 0; border: 1px solid rgba(11,27,58,0.07); border-bottom: none; }
+.rule-icon { font-size: 0.9rem; }
+.rule-text { font-size: 0.82rem; color: var(--dgrey); line-height: 1.45; }
+
+/* Distorted logos for don'ts */
+.logo-squish  { transform: scaleX(1.6); display: inline-block; }
+.logo-rotate  { transform: rotate(-15deg); display: inline-block; }
+.logo-lowop   { opacity: 0.15; display: inline-block; }
+.logo-outline { -webkit-text-stroke: 1px var(--navy); color: transparent; }
+
+/* ── Spacing ────────────────────────────────────────── */
+.spacing-grid {
+  display: grid; grid-template-columns: repeat(6, 1fr);
+  gap: 14px; margin-top: 40px; align-items: end;
+}
+.space-card {
+  background: var(--lgrey); border-radius: 12px;
+  padding: 16px 12px; text-align: center;
+}
+.space-box {
+  background: rgba(230,51,41,0.12);
+  border: 1px dashed rgba(230,51,41,0.35);
+  border-radius: 4px; margin: 0 auto 10px;
+}
+.space-px   { font-size: 0.75rem; font-family: 'Courier New', monospace; color: var(--red); font-weight: 700; }
+.space-name { font-size: 0.68rem; color: var(--mgrey); margin-top: 2px; }
+
+/* ── Download assets strip ──────────────────────────── */
+.assets-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 20px; margin-top: 40px;
+}
+.asset-card {
+  background: var(--lgrey);
+  border-radius: 16px; padding: 32px 24px;
+  text-align: center; border: 1px solid transparent;
+  transition: border-color 0.2s, transform 0.2s;
+  cursor: default;
+}
+.asset-card:hover { border-color: rgba(230,51,41,0.2); transform: translateY(-3px); }
+.asset-icon { font-size: 2.2rem; margin-bottom: 14px; }
+.asset-name { font-size: 0.95rem; font-weight: 800; color: var(--navy); margin-bottom: 6px; }
+.asset-desc { font-size: 0.8rem; color: var(--mgrey); line-height: 1.55; margin-bottom: 16px; }
+.asset-badge {
+  display: inline-block;
+  background: rgba(11,27,58,0.06);
+  border-radius: 6px; padding: 4px 12px;
+  font-size: 0.7rem; font-weight: 700;
+  letter-spacing: 1px; color: var(--navy);
+}
+
+/* ── Quick reference strip ──────────────────────────── */
+.quick-ref {
+  background: var(--navy);
+  border-radius: 20px; padding: 44px 48px;
+}
+.quick-ref-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 32px; margin-top: 32px;
+}
+.qr-block h5 {
+  font-size: 0.65rem; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; color: rgba(150,159,176,0.7);
+  margin-bottom: 12px;
+}
+.qr-item {
+  display: flex; align-items: center; gap: 8px;
+  margin-bottom: 8px;
+}
+.qr-dot { width: 10px; height: 10px; border-radius: 3px; flex-shrink: 0; }
+.qr-val { font-size: 0.78rem; color: rgba(255,255,255,0.7); font-family: 'Courier New', monospace; }
+.qr-lbl { font-size: 0.72rem; color: var(--mgrey); margin-top: 2px; }
+
+@media (max-width: 900px) {
+  .logo-showcase      { grid-template-columns: 1fr; }
+  .color-grid         { grid-template-columns: repeat(3, 1fr); }
+  .color-extended     { grid-template-columns: 1fr; }
+  .type-scale         { grid-template-columns: 1fr; }
+  .type-weights       { grid-template-columns: repeat(3, 1fr); }
+  .rules-grid         { grid-template-columns: 1fr; }
+  .anatomy-callouts   { grid-template-columns: 1fr; }
+  .spacing-grid       { grid-template-columns: repeat(3, 1fr); }
+  .assets-grid        { grid-template-columns: 1fr; }
+  .quick-ref-grid     { grid-template-columns: repeat(2, 1fr); }
+  .color-usage        { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .color-grid         { grid-template-columns: 1fr 1fr; }
+  .type-weights       { grid-template-columns: repeat(2, 1fr); }
+  .spacing-grid       { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <span class="logo-bolt"><svg viewBox="0 0 100 100"><polygon points="0,0 68,0 68,40 100,40 44,100 44,60 0,60" fill="#E63329"/></svg></span>
+      <span class="logo-text"><span class="logo-top">TOPAGENT</span><span class="logo-bot">Systems</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">בית</a></li>
+      <li><a href="weekly.html">דוח שבועי</a></li>
+      <li><a href="community.html">קהילה</a></li>
+      <li><a href="pricing.html">מחירים</a></li>
+      <li><a href="contact.html" class="nav-cta">הצטרפו</a></li>
+    </ul>
+    <div class="nav-hamburger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="brand-hero">
+  <div class="brand-hero-inner">
+    <div class="brand-version">Brand Kit · v1.0 · 2026</div>
+    <h1>Brand Guidelines</h1>
+    <p>הזהות הויזואלית המלאה של TopAgent Systems — צבעים, לוגו, טיפוגרפיה, וכללי שימוש</p>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════
+     1. LOGO
+     ════════════════════════════════════════════════════ -->
+<section style="background:var(--white)">
+  <div class="section-inner">
+
+    <div class="reveal">
+      <div class="bg-label">01 — Logo</div>
+      <h2 class="section-title">הלוגו שלנו</h2>
+      <p style="max-width:560px">הלוגו מורכב משני אלמנטים: T-Bolt — ברק משולש המסמל מהירות ואוטומציה — ו-TOPAGENT SYSTEMS כוורד־מארק. תמיד יופיעו יחד.</p>
+    </div>
+
+    <!-- Primary / Reversed -->
+    <div class="logo-showcase reveal">
+      <div class="logo-panel dark">
+        <div class="logo-xl">
+          <div class="bolt">
+            <svg viewBox="0 0 100 100"><polygon points="0,0 68,0 68,40 100,40 44,100 44,60 0,60" fill="#E63329"/></svg>
+          </div>
+          <div class="wordmark">
+            <span class="wm-top">TOPAGENT</span>
+            <span class="wm-bot">Systems</span>
+          </div>
+        </div>
+        <div class="logo-panel-label">Primary — Navy Background</div>
+      </div>
+      <div class="logo-panel light">
+        <div class="logo-xl">
+          <div class="bolt">
+            <svg viewBox="0 0 100 100"><polygon points="0,0 68,0 68,40 100,40 44,100 44,60 0,60" fill="#E63329"/></svg>
+          </div>
+          <div class="wordmark">
+            <span class="wm-top">TOPAGENT</span>
+            <span class="wm-bot">Systems</span>
+          </div>
+        </div>
+        <div class="logo-panel-label">Reversed — Light Background</div>
+      </div>
+    </div>
+
+    <!-- Anatomy -->
+    <div class="anatomy-wrap reveal">
+      <div class="anatomy-logo">
+        <div class="anatomy-bolt">
+          <svg viewBox="0 0 100 100"><polygon points="0,0 68,0 68,40 100,40 44,100 44,60 0,60" fill="#E63329"/></svg>
+        </div>
+        <div class="anatomy-text">
+          <span class="anatomy-top">TOPAGENT</span>
+          <span class="anatomy-sub">Systems</span>
+        </div>
+      </div>
+      <div class="anatomy-callouts">
+        <div class="anatomy-item">
+          <div class="anat-num">A</div>
+          <h4>T-Bolt Icon</h4>
+          <p>משולש ברק אדום — Red #E63329. מסמל מהירות, אוטומציה, ואנרגיה. לעולם לא ישונה לצבע אחר.</p>
+        </div>
+        <div class="anatomy-item">
+          <div class="anat-num">B</div>
+          <h4>TOPAGENT Wordmark</h4>
+          <p>Weight 900 (Black), אותיות גדולות. Segoe UI. גובה 1.85rem ביחס לגודל הלוגו הסטנדרטי.</p>
+        </div>
+        <div class="anatomy-item">
+          <div class="anat-num">C</div>
+          <h4>SYSTEMS Subtext</h4>
+          <p>Weight 400, letter-spacing: 6px, text-transform: uppercase. תמיד ב-Mid Grey #969FB0.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════
+     2. COLORS — PRIMARY
+     ════════════════════════════════════════════════════ -->
+<section style="background:var(--lgrey)">
+  <div class="section-inner">
+
+    <div class="reveal">
+      <div class="bg-label">02 — Colors</div>
+      <h2 class="section-title">לוח הצבעים הראשי</h2>
+      <p>חמישה צבעים בסיסיים — Navy, Red, White, Light Grey, Mid Grey. כל צבע נוסף חייב להיות גרסת גוון של אחד מהם.</p>
+    </div>
+
+    <div class="color-grid reveal">
+
+      <!-- Navy Primary -->
+      <div class="color-card">
+        <div class="color-swatch" style="background:#0B1B3A">
+          <div class="color-check">✦</div>
+        </div>
+        <div class="color-info">
+          <div class="color-name">Navy Primary</div>
+          <div class="color-hex">#0B1B3A</div>
+          <div class="color-specs">
+            RGB 11 · 27 · 58<br>
+            HSL 220° · 68% · 14%<br>
+            CMYK 81 · 53 · 0 · 77
+          </div>
+        </div>
+      </div>
+
+      <!-- Red Accent -->
+      <div class="color-card">
+        <div class="color-swatch" style="background:#E63329">
+          <div class="color-check">✦</div>
+        </div>
+        <div class="color-info">
+          <div class="color-name">Red Accent</div>
+          <div class="color-hex">#E63329</div>
+          <div class="color-specs">
+            RGB 230 · 51 · 41<br>
+            HSL 3° · 78% · 53%<br>
+            CMYK 0 · 78 · 82 · 10
+          </div>
+        </div>
+      </div>
+
+      <!-- White -->
+      <div class="color-card">
+        <div class="color-swatch has-border" style="background:#FFFFFF"></div>
+        <div class="color-info">
+          <div class="color-name">Pure White</div>
+          <div class="color-hex">#FFFFFF</div>
+          <div class="color-specs">
+            RGB 255 · 255 · 255<br>
+            HSL 0° · 0% · 100%<br>
+            CMYK 0 · 0 · 0 · 0
+          </div>
+        </div>
+      </div>
+
+      <!-- Light Grey -->
+      <div class="color-card">
+        <div class="color-swatch has-border" style="background:#F5F5F8"></div>
+        <div class="color-info">
+          <div class="color-name">Light Grey</div>
+          <div class="color-hex">#F5F5F8</div>
+          <div class="color-specs">
+            RGB 245 · 245 · 248<br>
+            HSL 240° · 13% · 97%<br>
+            CMYK 1 · 1 · 0 · 3
+          </div>
+        </div>
+      </div>
+
+      <!-- Mid Grey -->
+      <div class="color-card">
+        <div class="color-swatch" style="background:#969FB0">
+          <div class="color-check" style="background:rgba(0,0,0,0.15)">✦</div>
+        </div>
+        <div class="color-info">
+          <div class="color-name">Mid Grey</div>
+          <div class="color-hex">#969FB0</div>
+          <div class="color-specs">
+            RGB 150 · 159 · 176<br>
+            HSL 220° · 11% · 64%<br>
+            CMYK 15 · 10 · 0 · 31
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Extended palette -->
+    <div class="reveal" style="margin-top:52px">
+      <h3 style="margin-bottom:8px">גוונים נגזרים</h3>
+      <p style="font-size:0.88rem;margin-bottom:0">לשימוש בגרדיאנטים, overlay, ורקעים מורכבים — לא לשימוש עצמאי כצבע ראשי.</p>
+    </div>
+
+    <div class="color-extended reveal">
+      <div class="color-ext-card">
+        <div class="color-ext-swatch" style="background:#071226"></div>
+        <div>
+          <div class="color-ext-name">Navy Dark</div>
+          <div class="color-ext-hex">#071226 — גרסה כהה לרקע hero ו-footer</div>
+        </div>
+      </div>
+      <div class="color-ext-card">
+        <div class="color-ext-swatch" style="background:#162952"></div>
+        <div>
+          <div class="color-ext-name">Navy Light</div>
+          <div class="color-ext-hex">#162952 — גרסה בהירה לכרטיסים על רקע navy</div>
+        </div>
+      </div>
+      <div class="color-ext-card">
+        <div class="color-ext-swatch" style="background:#ff7b73"></div>
+        <div>
+          <div class="color-ext-name">Red Soft</div>
+          <div class="color-ext-hex">#FF7B73 — לתגיות ו-section tags על רקע כהה</div>
+        </div>
+      </div>
+      <div class="color-ext-card">
+        <div class="color-ext-swatch" style="background:#374151"></div>
+        <div>
+          <div class="color-ext-name">Dark Grey</div>
+          <div class="color-ext-hex">#374151 — טקסט גוף על רקע לבן / אפור בהיר</div>
+        </div>
+      </div>
+      <div class="color-ext-card">
+        <div class="color-ext-swatch" style="background:rgba(230,51,41,0.10);border:1px solid rgba(230,51,41,0.2)"></div>
+        <div>
+          <div class="color-ext-name">Red 10%</div>
+          <div class="color-ext-hex">rgba(230,51,41,0.10) — רקע badge ו-highlight</div>
+        </div>
+      </div>
+      <div class="color-ext-card">
+        <div class="color-ext-swatch" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1)"></div>
+        <div>
+          <div class="color-ext-name">White 6%</div>
+          <div class="color-ext-hex">rgba(255,255,255,0.06) — כרטיסים על רקע navy</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Color usage rules -->
+    <div class="color-usage reveal">
+      <div class="usage-card">
+        <h4 style="color:#22c55e">✓ שימוש נכון</h4>
+        <div class="usage-item"><div class="usage-dot" style="background:#22c55e"></div><span>Navy על רקע לבן / Light Grey לטקסט ראשי</span></div>
+        <div class="usage-item"><div class="usage-dot" style="background:#22c55e"></div><span>Red לכפתורי CTA ראשיים ולהדגשות בודדות</span></div>
+        <div class="usage-item"><div class="usage-dot" style="background:#22c55e"></div><span>White על Navy לטקסט בחלקים כהים</span></div>
+        <div class="usage-item"><div class="usage-dot" style="background:#22c55e"></div><span>Mid Grey לתוכן משני, תגיות, ו-subtext</span></div>
+        <div class="usage-item"><div class="usage-dot" style="background:#22c55e"></div><span>Light Grey לרקע sections חלופיים</span></div>
+      </div>
+      <div class="usage-card">
+        <h4 style="color:var(--red)">✕ יש להימנע</h4>
+        <div class="usage-item"><div class="usage-dot" style="background:var(--red)"></div><span>Red כצבע רקע לסעיפים שלמים — רק CTA ו-badge</span></div>
+        <div class="usage-item"><div class="usage-dot" style="background:var(--red)"></div><span>שימוש בשני כפתורי Red באותה שורה</span></div>
+        <div class="usage-item"><div class="usage-dot" style="background:var(--red)"></div><span>שינוי גוון ה-Red האקסנט לגרסה "יותר כתומה/ורודה"</span></div>
+        <div class="usage-item"><div class="usage-dot" style="background:var(--red)"></div><span>Mid Grey על Light Grey — ניגודיות נמוכה מדי</span></div>
+        <div class="usage-item"><div class="usage-dot" style="background:var(--red)"></div><span>הוספת צבעים חיצוניים ללא אישור (כחול, ירוק, סגול)</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════
+     3. TYPOGRAPHY
+     ════════════════════════════════════════════════════ -->
+<section style="background:var(--white)">
+  <div class="section-inner">
+
+    <div class="reveal">
+      <div class="bg-label">03 — Typography</div>
+      <h2 class="section-title">טיפוגרפיה</h2>
+      <p>פונט אחד — Segoe UI. ניקיון, קריאות, ואוניברסליות. לעברית ולאנגלית כאחד.</p>
+    </div>
+
+    <div class="type-display reveal">
+      <div class="type-family">Segoe UI</div>
+      <div class="type-specimen">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z · 0 1 2 3 4 5 6 7 8 9</div>
+    </div>
+
+    <!-- Scale -->
+    <div style="margin-top:48px" class="reveal">
+      <h3 style="margin-bottom:8px">סולם גדלים</h3>
+      <p style="font-size:0.88rem">Fluid sizing עם <code style="background:var(--lgrey);padding:2px 6px;border-radius:4px;font-size:0.82rem">clamp()</code> לתצוגות שונות.</p>
+    </div>
+
+    <div class="type-scale reveal">
+      <div class="type-row">
+        <span class="type-sample" style="font-size:clamp(2.2rem,5vw,3.8rem);font-weight:800">H1 — כותרת ראשית</span>
+        <div class="type-meta"><div class="t-size">clamp(2.2–3.8rem)</div><div class="t-weight">Weight 800</div></div>
+      </div>
+      <div class="type-row">
+        <span class="type-sample" style="font-size:clamp(1.7rem,3.5vw,2.6rem);font-weight:800">H2 — כותרת משנה</span>
+        <div class="type-meta"><div class="t-size">clamp(1.7–2.6rem)</div><div class="t-weight">Weight 800</div></div>
+      </div>
+      <div class="type-row">
+        <span class="type-sample" style="font-size:1.15rem;font-weight:800">H3 — כותרת כרטיס</span>
+        <div class="type-meta"><div class="t-size">1.15rem</div><div class="t-weight">Weight 800</div></div>
+      </div>
+      <div class="type-row">
+        <span class="type-sample" style="font-size:0.95rem;font-weight:800">H4 — תגית משנה</span>
+        <div class="type-meta"><div class="t-size">0.95rem</div><div class="t-weight">Weight 800</div></div>
+      </div>
+      <div class="type-row">
+        <span class="type-sample" style="font-size:1rem;font-weight:400;color:var(--dgrey);line-height:1.75">P — טקסט גוף עם line-height 1.75 לקריאות מיטבית בעברית ובאנגלית</span>
+        <div class="type-meta"><div class="t-size">1rem (16px)</div><div class="t-weight">Weight 400</div></div>
+      </div>
+      <div class="type-row">
+        <span class="type-sample" style="font-size:0.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--red)">SECTION TAG · LABEL</span>
+        <div class="type-meta"><div class="t-size">0.72rem</div><div class="t-weight">700 · LS 2px · UC</div></div>
+      </div>
+    </div>
+
+    <!-- Weights -->
+    <div class="type-weights reveal" style="margin-top:36px">
+      <div class="weight-card">
+        <div class="weight-letter" style="font-weight:300">Aa</div>
+        <div class="weight-name">Light</div>
+        <div class="weight-num">300</div>
+      </div>
+      <div class="weight-card">
+        <div class="weight-letter" style="font-weight:400">Aa</div>
+        <div class="weight-name">Regular</div>
+        <div class="weight-num">400</div>
+      </div>
+      <div class="weight-card">
+        <div class="weight-letter" style="font-weight:600">Aa</div>
+        <div class="weight-name">Semi-Bold</div>
+        <div class="weight-num">600</div>
+      </div>
+      <div class="weight-card" style="border: 1.5px solid rgba(230,51,41,0.3)">
+        <div class="weight-letter" style="font-weight:700">Aa</div>
+        <div class="weight-name" style="color:var(--red)">Bold ★</div>
+        <div class="weight-num">700</div>
+      </div>
+      <div class="weight-card" style="border: 1.5px solid rgba(230,51,41,0.3)">
+        <div class="weight-letter" style="font-weight:900">Aa</div>
+        <div class="weight-name" style="color:var(--red)">Black ★</div>
+        <div class="weight-num">900</div>
+      </div>
+    </div>
+    <p class="reveal" style="font-size:0.8rem;color:var(--mgrey);margin-top:12px">★ Weights 700 ו-900 הם הראשיים — 400 לטקסט גוף, 600 לקישורים ותגיות.</p>
+
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════
+     4. LOGO USAGE RULES
+     ════════════════════════════════════════════════════ -->
+<section style="background:var(--lgrey)">
+  <div class="section-inner">
+
+    <div class="reveal">
+      <div class="bg-label">04 — Logo Usage</div>
+      <h2 class="section-title">כללי שימוש בלוגו</h2>
+      <p>כיצד להציג את הלוגו — ומה לעולם לא לעשות.</p>
+    </div>
+
+    <div class="rules-grid reveal">
+
+      <!-- DO: Navy background -->
+      <div class="rule-card do">
+        <div class="rule-preview">
+          <div style="display:flex;align-items:center;gap:14px">
+            <svg width="36" height="36" viewBox="0 0 100 100"><polygon points="0,0 68,0 68,40 100,40 44,100 44,60 0,60" fill="#E63329"/></svg>
+            <div style="display:flex;flex-direction:column;gap:2px">
+              <span style="font-size:1.5rem;font-weight:900;color:#fff;line-height:1;letter-spacing:-0.3px">TOPAGENT</span>
+              <span style="font-size:0.55rem;font-weight:400;color:#969FB0;letter-spacing:5px;text-transform:uppercase">Systems</span>
+            </div>
+          </div>
+        </div>
+        <div class="rule-footer">
+          <span class="rule-icon">✅</span>
+          <span class="rule-text">לוגו לבן/אפור על רקע Navy — שימוש ראשי מועדף</span>
+        </div>
+      </div>
+
+      <!-- DO: Light background -->
+      <div class="rule-card do" style="--do-preview-bg:var(--lgrey)">
+        <div class="rule-preview" style="background:var(--lgrey);border:1px solid rgba(11,27,58,0.07);border-bottom:none;border-radius:16px 16px 0 0">
+          <div style="display:flex;align-items:center;gap:14px">
+            <svg width="36" height="36" viewBox="0 0 100 100"><polygon points="0,0 68,0 68,40 100,40 44,100 44,60 0,60" fill="#E63329"/></svg>
+            <div style="display:flex;flex-direction:column;gap:2px">
+              <span style="font-size:1.5rem;font-weight:900;color:#0B1B3A;line-height:1;letter-spacing:-0.3px">TOPAGENT</span>
+              <span style="font-size:0.55rem;font-weight:400;color:#969FB0;letter-spacing:5px;text-transform:uppercase">Systems</span>
+            </div>
+          </div>
+        </div>
+        <div class="rule-footer">
+          <span class="rule-icon">✅</span>
+          <span class="rule-text">לוגו כהה על רקע בהיר — שימוש משני תקין</span>
+        </div>
+      </div>
+
+      <!-- DON'T: Stretch -->
+      <div class="rule-card dont">
+        <div class="rule-preview">
+          <div style="display:inline-block;transform:scaleX(1.55);transform-origin:center">
+            <div style="display:flex;align-items:center;gap:14px">
+              <svg width="36" height="36" viewBox="0 0 100 100"><polygon points="0,0 68,0 68,40 100,40 44,100 44,60 0,60" fill="#E63329"/></svg>
+              <div style="display:flex;flex-direction:column;gap:2px">
+                <span style="font-size:1.5rem;font-weight:900;color:#0B1B3A;line-height:1">TOPAGENT</span>
+                <span style="font-size:0.55rem;font-weight:400;color:#969FB0;letter-spacing:5px;text-transform:uppercase">Systems</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="rule-footer">
+          <span class="rule-icon">❌</span>
+          <span class="rule-text">אין לעוות, למתוח, או לשנות את פרופורציות הלוגו</span>
+        </div>
+      </div>
+
+      <!-- DON'T: Recolor bolt -->
+      <div class="rule-card dont">
+        <div class="rule-preview">
+          <div style="display:flex;align-items:center;gap:14px">
+            <svg width="36" height="36" viewBox="0 0 100 100"><polygon points="0,0 68,0 68,40 100,40 44,100 44,60 0,60" fill="#6e45ff"/></svg>
+            <div style="display:flex;flex-direction:column;gap:2px">
+              <span style="font-size:1.5rem;font-weight:900;color:#6e45ff;line-height:1">TOPAGENT</span>
+              <span style="font-size:0.55rem;font-weight:400;color:#969FB0;letter-spacing:5px;text-transform:uppercase">Systems</span>
+            </div>
+          </div>
+        </div>
+        <div class="rule-footer">
+          <span class="rule-icon">❌</span>
+          <span class="rule-text">אין לשנות את צבע ה-T-Bolt — תמיד Red #E63329 בלבד</span>
+        </div>
+      </div>
+
+      <!-- DON'T: Low contrast background -->
+      <div class="rule-card dont">
+        <div class="rule-preview" style="background:linear-gradient(135deg,#1a3a6e,#2a5298)">
+          <div style="display:flex;align-items:center;gap:14px;opacity:0.25">
+            <svg width="36" height="36" viewBox="0 0 100 100"><polygon points="0,0 68,0 68,40 100,40 44,100 44,60 0,60" fill="#E63329"/></svg>
+            <div style="display:flex;flex-direction:column;gap:2px">
+              <span style="font-size:1.5rem;font-weight:900;color:#fff;line-height:1">TOPAGENT</span>
+              <span style="font-size:0.55rem;font-weight:400;color:#aaa;letter-spacing:5px;text-transform:uppercase">Systems</span>
+            </div>
+          </div>
+        </div>
+        <div class="rule-footer">
+          <span class="rule-icon">❌</span>
+          <span class="rule-text">אין להציג את הלוגו על רקעים מדורגים או בצבעים לא-מותגיים</span>
+        </div>
+      </div>
+
+      <!-- DON'T: Rotate -->
+      <div class="rule-card dont">
+        <div class="rule-preview">
+          <div style="display:inline-block;transform:rotate(-20deg)">
+            <div style="display:flex;align-items:center;gap:14px">
+              <svg width="36" height="36" viewBox="0 0 100 100"><polygon points="0,0 68,0 68,40 100,40 44,100 44,60 0,60" fill="#E63329"/></svg>
+              <div style="display:flex;flex-direction:column;gap:2px">
+                <span style="font-size:1.5rem;font-weight:900;color:#0B1B3A;line-height:1">TOPAGENT</span>
+                <span style="font-size:0.55rem;font-weight:400;color:#969FB0;letter-spacing:5px;text-transform:uppercase">Systems</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="rule-footer">
+          <span class="rule-icon">❌</span>
+          <span class="rule-text">אין לסובב את הלוגו — תמיד אופקי וישר</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Clear space rule -->
+    <div class="reveal" style="margin-top:40px;background:var(--white);border-radius:20px;padding:36px 40px;border:1px solid rgba(11,27,58,0.07)">
+      <h3 style="margin-bottom:10px">מרחב נקי — Clear Space</h3>
+      <p style="margin-bottom:24px;font-size:0.9rem">שמרו לפחות את גובה ה-T-Bolt כמרחק נקי מכל עצם אחר — בכל כיוון.</p>
+      <div style="display:flex;align-items:center;justify-content:center;padding:32px;background:var(--lgrey);border-radius:14px;position:relative">
+        <div style="border:1.5px dashed rgba(230,51,41,0.4);padding:20px;border-radius:8px">
+          <div style="display:flex;align-items:center;gap:12px">
+            <svg width="28" height="28" viewBox="0 0 100 100"><polygon points="0,0 68,0 68,40 100,40 44,100 44,60 0,60" fill="#E63329"/></svg>
+            <div style="display:flex;flex-direction:column;gap:1px">
+              <span style="font-size:1.2rem;font-weight:900;color:var(--navy);line-height:1">TOPAGENT</span>
+              <span style="font-size:0.5rem;color:var(--mgrey);letter-spacing:5px;text-transform:uppercase">Systems</span>
+            </div>
+          </div>
+        </div>
+        <div style="position:absolute;top:8px;right:50%;transform:translateX(50%);font-size:0.65rem;font-weight:700;color:rgba(230,51,41,0.6);letter-spacing:1px">× 1 logo height</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════
+     5. SPACING SYSTEM
+     ════════════════════════════════════════════════════ -->
+<section style="background:var(--white)">
+  <div class="section-inner">
+
+    <div class="reveal">
+      <div class="bg-label">05 — Spacing</div>
+      <h2 class="section-title">מערכת ריווח</h2>
+      <p>רשת 8px — כל ריווח הוא מכפלה של 8. עקביות ויזואלית בכל הממשק.</p>
+    </div>
+
+    <div class="spacing-grid reveal">
+      <div class="space-card">
+        <div class="space-box" style="width:4px;height:4px"></div>
+        <div class="space-px">4px</div>
+        <div class="space-name">2xs</div>
+      </div>
+      <div class="space-card">
+        <div class="space-box" style="width:8px;height:8px"></div>
+        <div class="space-px">8px</div>
+        <div class="space-name">xs</div>
+      </div>
+      <div class="space-card">
+        <div class="space-box" style="width:16px;height:16px"></div>
+        <div class="space-px">16px</div>
+        <div class="space-name">sm</div>
+      </div>
+      <div class="space-card">
+        <div class="space-box" style="width:24px;height:24px"></div>
+        <div class="space-px">24px</div>
+        <div class="space-name">md</div>
+      </div>
+      <div class="space-card">
+        <div class="space-box" style="width:32px;height:32px"></div>
+        <div class="space-px">32px</div>
+        <div class="space-name">lg</div>
+      </div>
+      <div class="space-card">
+        <div class="space-box" style="width:40px;height:40px"></div>
+        <div class="space-px">48px+</div>
+        <div class="space-name">xl</div>
+      </div>
+    </div>
+
+    <!-- Border radius -->
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:32px" class="reveal">
+      <div style="background:var(--lgrey);border-radius:12px;padding:20px;text-align:center">
+        <div style="width:48px;height:48px;background:var(--navy);border-radius:6px;margin:0 auto 10px"></div>
+        <div style="font-size:0.72rem;font-family:'Courier New',monospace;color:var(--red);font-weight:700">6px</div>
+        <div style="font-size:0.68rem;color:var(--mgrey)">כפתורים קטנים</div>
+      </div>
+      <div style="background:var(--lgrey);border-radius:12px;padding:20px;text-align:center">
+        <div style="width:48px;height:48px;background:var(--navy);border-radius:8px;margin:0 auto 10px"></div>
+        <div style="font-size:0.72rem;font-family:'Courier New',monospace;color:var(--red);font-weight:700">8px</div>
+        <div style="font-size:0.68rem;color:var(--mgrey)">כפתורים ראשיים</div>
+      </div>
+      <div style="background:var(--lgrey);border-radius:12px;padding:20px;text-align:center">
+        <div style="width:48px;height:48px;background:var(--navy);border-radius:12px;margin:0 auto 10px"></div>
+        <div style="font-size:0.72rem;font-family:'Courier New',monospace;color:var(--red);font-weight:700">12px</div>
+        <div style="font-size:0.68rem;color:var(--mgrey)">כרטיסים קטנים</div>
+      </div>
+      <div style="background:var(--lgrey);border-radius:12px;padding:20px;text-align:center">
+        <div style="width:48px;height:48px;background:var(--navy);border-radius:16px;margin:0 auto 10px"></div>
+        <div style="font-size:0.72rem;font-family:'Courier New',monospace;color:var(--red);font-weight:700">16–20px</div>
+        <div style="font-size:0.68rem;color:var(--mgrey)">כרטיסים גדולים</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════
+     6. QUICK REFERENCE
+     ════════════════════════════════════════════════════ -->
+<section style="background:var(--lgrey)">
+  <div class="section-inner">
+
+    <div class="reveal">
+      <div class="bg-label">06 — Quick Reference</div>
+      <h2 class="section-title">גיליון עזר מהיר</h2>
+      <p>כל ערכי המותג במקום אחד — לעתק ולהדביק.</p>
+    </div>
+
+    <div class="quick-ref reveal">
+      <div class="quick-ref-grid">
+
+        <div class="qr-block">
+          <h5>צבעים ראשיים</h5>
+          <div class="qr-item"><div class="qr-dot" style="background:#0B1B3A"></div><div><div class="qr-val">#0B1B3A</div><div class="qr-lbl">Navy Primary</div></div></div>
+          <div class="qr-item"><div class="qr-dot" style="background:#E63329"></div><div><div class="qr-val">#E63329</div><div class="qr-lbl">Red Accent</div></div></div>
+          <div class="qr-item"><div class="qr-dot" style="background:#FFFFFF;border:1px solid rgba(255,255,255,0.2)"></div><div><div class="qr-val">#FFFFFF</div><div class="qr-lbl">Pure White</div></div></div>
+          <div class="qr-item"><div class="qr-dot" style="background:#F5F5F8"></div><div><div class="qr-val">#F5F5F8</div><div class="qr-lbl">Light Grey</div></div></div>
+          <div class="qr-item"><div class="qr-dot" style="background:#969FB0"></div><div><div class="qr-val">#969FB0</div><div class="qr-lbl">Mid Grey</div></div></div>
+        </div>
+
+        <div class="qr-block">
+          <h5>צבעים נגזרים</h5>
+          <div class="qr-item"><div class="qr-dot" style="background:#071226"></div><div><div class="qr-val">#071226</div><div class="qr-lbl">Navy Dark</div></div></div>
+          <div class="qr-item"><div class="qr-dot" style="background:#162952"></div><div><div class="qr-val">#162952</div><div class="qr-lbl">Navy Light</div></div></div>
+          <div class="qr-item"><div class="qr-dot" style="background:#FF7B73"></div><div><div class="qr-val">#FF7B73</div><div class="qr-lbl">Red Soft</div></div></div>
+          <div class="qr-item"><div class="qr-dot" style="background:#374151"></div><div><div class="qr-val">#374151</div><div class="qr-lbl">Dark Grey</div></div></div>
+        </div>
+
+        <div class="qr-block">
+          <h5>טיפוגרפיה</h5>
+          <div class="qr-item" style="margin-bottom:6px"><div class="qr-val">Segoe UI</div></div>
+          <div class="qr-item"><div><div class="qr-val">300 · 400 · 600</div><div class="qr-lbl">Light / Regular / Semi</div></div></div>
+          <div class="qr-item"><div><div class="qr-val">700 · 900</div><div class="qr-lbl">Bold / Black (ראשיים)</div></div></div>
+          <div class="qr-item"><div><div class="qr-val">line-height: 1.75</div><div class="qr-lbl">טקסט גוף</div></div></div>
+          <div class="qr-item"><div><div class="qr-val">RTL · Hebrew-first</div><div class="qr-lbl">כיוון</div></div></div>
+        </div>
+
+        <div class="qr-block">
+          <h5>ערכים נוספים</h5>
+          <div class="qr-item"><div><div class="qr-val">--radius: 12px</div><div class="qr-lbl">border-radius בסיסי</div></div></div>
+          <div class="qr-item"><div><div class="qr-val">max-width: 1200px</div><div class="qr-lbl">רוחב קונטיינר</div></div></div>
+          <div class="qr-item"><div><div class="qr-val">88px 32px</div><div class="qr-lbl">padding section</div></div></div>
+          <div class="qr-item"><div><div class="qr-val">68px</div><div class="qr-lbl">גובה nav</div></div></div>
+          <div class="qr-item"><div><div class="qr-val">z-index: 100</div><div class="qr-lbl">nav z-index</div></div></div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════
+     7. ASSETS
+     ════════════════════════════════════════════════════ -->
+<section style="background:var(--white)">
+  <div class="section-inner">
+
+    <div class="reveal">
+      <div class="bg-label">07 — Assets</div>
+      <h2 class="section-title">נכסי המותג</h2>
+      <p>כל הנכסים הויזואליים של TopAgent Systems — מוכנים לשימוש.</p>
+    </div>
+
+    <div class="assets-grid reveal">
+
+      <div class="asset-card">
+        <div class="asset-icon">
+          <svg width="44" height="44" viewBox="0 0 100 100"><polygon points="0,0 68,0 68,40 100,40 44,100 44,60 0,60" fill="#E63329"/></svg>
+        </div>
+        <div class="asset-name">לוגו — רקע Navy</div>
+        <div class="asset-desc">גרסה ראשית לשימוש על רקע כהה, אתר, פרזנטציות, ומסמכים.</div>
+        <span class="asset-badge">topagent_logo_navy.png</span>
+      </div>
+
+      <div class="asset-card">
+        <div class="asset-icon">🎨</div>
+        <div class="asset-name">לוגו — רקע לבן</div>
+        <div class="asset-desc">גרסה משנית לשימוש על רקעים בהירים, הדפסה, ונייר מכתבים.</div>
+        <span class="asset-badge">topagent_logo_white.png</span>
+      </div>
+
+      <div class="asset-card">
+        <div class="asset-icon">📘</div>
+        <div class="asset-name">Brand Guidelines</div>
+        <div class="asset-desc">מסמך הנחיות מיתוג מלא — צבעים, פונטים, לוגו, וכללי שימוש.</div>
+        <span class="asset-badge">brand_guidelines.html</span>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <span class="logo-bolt"><svg viewBox="0 0 100 100"><polygon points="0,0 68,0 68,40 100,40 44,100 44,60 0,60" fill="#E63329"/></svg></span>
+          <span class="logo-text"><span class="logo-top">TOPAGENT</span><span class="logo-bot">Systems</span></span>
+        </a>
+        <p>ניתוח אוטומטי שבועי של נישת ה-AI/Tech ביוטיוב. מודיעין שוק ממשי לכל חבר קהילה.</p>
+      </div>
+      <div class="footer-col"><h4>ניווט</h4><ul><li><a href="index.html">בית</a></li><li><a href="weekly.html">דוח שבועי</a></li><li><a href="community.html">קהילה</a></li><li><a href="pricing.html">מחירים</a></li></ul></div>
+      <div class="footer-col"><h4>מותג</h4><ul><li><a href="brand_guidelines.html">Brand Guidelines</a></li><li><a href="בראנד/topagent_logo_navy.png">לוגו Navy</a></li></ul></div>
+      <div class="footer-col"><h4>צרו קשר</h4><ul><li><a href="contact.html">טופס יצירת קשר</a></li><li><a href="mailto:neorai0801@gmail.com">neorai0801@gmail.com</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 TopAgent Systems. כל הזכויות שמורות.</span>
+      <div class="footer-badges"><span class="badge">Brand Kit v1.0</span><span class="badge">Hebrew First</span><span class="badge">RTL</span></div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

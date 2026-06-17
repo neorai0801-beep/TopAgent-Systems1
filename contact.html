@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TopAgent Systems — צרו קשר</title>
+<link rel="stylesheet" href="css/styles.css">
+<style>
+/* Contact layout */
+.contact-grid { display: grid; grid-template-columns: 1fr 1.6fr; gap: 64px; align-items: start; }
+
+/* Info side */
+.contact-info { }
+.info-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  margin-bottom: 28px;
+}
+.info-icon { width: 44px; height: 44px; background: var(--navy); border-radius: 11px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+.info-item h4 { font-size: 0.85rem; font-weight: 700; margin-bottom: 4px; }
+.info-item p  { font-size: 0.84rem; color: var(--mgrey); line-height: 1.5; }
+.info-item a  { color: var(--red); text-decoration: none; }
+.info-item a:hover { text-decoration: underline; }
+
+.response-badge {
+  background: rgba(22, 163, 74, 0.1);
+  border: 1px solid rgba(22,163,74,0.2);
+  border-radius: 10px;
+  padding: 16px 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 32px;
+}
+.response-dot { width: 8px; height: 8px; background: #22c55e; border-radius: 50%; animation: pulse 2s ease-in-out infinite; flex-shrink: 0; }
+.response-text { font-size: 0.84rem; color: var(--dgrey); line-height: 1.5; }
+.response-text strong { color: var(--navy); }
+
+/* Form */
+.contact-form {
+  background: var(--lgrey);
+  border-radius: 20px;
+  padding: 40px;
+}
+.contact-form h3 { font-size: 1.3rem; margin-bottom: 6px; }
+.contact-form > p { font-size: 0.9rem; color: var(--mgrey); margin-bottom: 30px; }
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-group { margin-bottom: 18px; }
+.form-group label { display: block; font-size: 0.82rem; font-weight: 700; color: var(--navy); margin-bottom: 7px; }
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 9px;
+  border: 1.5px solid rgba(11,27,58,0.12);
+  background: var(--white);
+  font-family: inherit;
+  font-size: 0.9rem;
+  color: var(--navy);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  direction: rtl;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--red);
+  box-shadow: 0 0 0 3px rgba(230,51,41,0.08);
+}
+.form-group textarea { resize: vertical; min-height: 110px; }
+.form-group select { cursor: pointer; }
+
+.form-check { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 24px; }
+.form-check input[type="checkbox"] { width: 16px; height: 16px; margin-top: 2px; flex-shrink: 0; accent-color: var(--red); }
+.form-check label { font-size: 0.84rem; color: var(--dgrey); line-height: 1.5; cursor: pointer; }
+
+.form-submit {
+  width: 100%;
+  padding: 15px 24px;
+  background: var(--red);
+  color: var(--white);
+  border: none;
+  border-radius: 9px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  transition: opacity 0.2s, transform 0.2s;
+  box-shadow: 0 4px 20px rgba(230,51,41,0.3);
+}
+.form-submit:hover { opacity: 0.88; transform: translateY(-1px); }
+
+/* Success message */
+.form-success {
+  display: none;
+  text-align: center;
+  padding: 32px;
+}
+.success-icon { font-size: 3rem; margin-bottom: 16px; }
+.form-success h3 { color: var(--navy); margin-bottom: 10px; }
+.form-success p  { color: var(--dgrey); font-size: 0.92rem; }
+
+/* Plan options */
+.plan-choice { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 18px; }
+.plan-option { }
+.plan-option input { display: none; }
+.plan-option label {
+  display: block;
+  padding: 12px 10px;
+  border-radius: 9px;
+  border: 1.5px solid rgba(11,27,58,0.12);
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+  font-size: 0.84rem;
+  font-weight: 600;
+}
+.plan-option input:checked + label {
+  border-color: var(--red);
+  background: rgba(230,51,41,0.06);
+  color: var(--red);
+}
+.plan-option label:hover { border-color: rgba(230,51,41,0.4); }
+
+@media (max-width: 960px) {
+  .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+  .form-row     { grid-template-columns: 1fr; }
+  .plan-choice  { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <span class="logo-bolt"><svg viewBox="0 0 100 100"><polygon points="0,0 68,0 68,40 100,40 44,100 44,60 0,60" fill="#E63329"/></svg></span>
+      <span class="logo-text"><span class="logo-top">TOPAGENT</span><span class="logo-bot">Systems</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">בית</a></li>
+      <li><a href="weekly.html">דוח שבועי</a></li>
+      <li><a href="community.html">קהילה</a></li>
+      <li><a href="pricing.html">מחירים</a></li>
+      <li><a href="contact.html" class="nav-cta">הצטרפו</a></li>
+    </ul>
+    <div class="nav-hamburger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <span class="section-tag" style="color:#ff7b73">צרו קשר</span>
+    <h1>בואו נדבר</h1>
+    <p>הצטרפו לקהילה, שאלו שאלות, או בקשו דוח לדוגמה — נחזור אליכם תוך 24 שעות</p>
+  </div>
+</div>
+
+<!-- CONTACT MAIN -->
+<section style="background:var(--white)">
+  <div class="section-inner">
+    <div class="contact-grid">
+
+      <!-- Left: Info -->
+      <div class="reveal">
+        <span class="section-tag">פרטי יצירת קשר</span>
+        <h2 style="font-size:1.8rem;margin-bottom:28px">מוכנים לעזור</h2>
+
+        <div class="info-item">
+          <div class="info-icon">📧</div>
+          <div>
+            <h4>אימייל</h4>
+            <p><a href="mailto:neorai0801@gmail.com">neorai0801@gmail.com</a></p>
+            <p>מענה תוך 24 שעות בימי עסקים</p>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <div class="info-icon">💬</div>
+          <div>
+            <h4>WhatsApp</h4>
+            <p>חברי הקהילה הפרו מקבלים גישה ישירה לקבוצת WhatsApp הפרטית</p>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <div class="info-icon">📅</div>
+          <div>
+            <h4>שעות מענה</h4>
+            <p>ראשון–חמישי, 09:00–18:00<br>שישי עד 13:00</p>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <div class="info-icon">🎁</div>
+          <div>
+            <h4>דוח לדוגמה — בחינם</h4>
+            <p>ציינו בטופס "דוח לדוגמה" ותקבלו דוח פרו מלא לשבוע האחרון — ללא התחייבות</p>
+          </div>
+        </div>
+
+        <div class="response-badge">
+          <div class="response-dot"></div>
+          <div class="response-text"><strong>זמן מענה ממוצע: 4 שעות</strong><br>בימי עסקים רגילים</div>
+        </div>
+      </div>
+
+      <!-- Right: Form -->
+      <div class="contact-form reveal" id="form-wrap">
+        <h3>השאירו פרטים</h3>
+        <p>נחזור אליכם עם מידע מותאם לצרכים שלכם</p>
+
+        <form id="contact-form" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="f-name">שם פרטי *</label>
+              <input type="text" id="f-name" placeholder="ישראל">
+            </div>
+            <div class="form-group">
+              <label for="f-last">שם משפחה</label>
+              <input type="text" id="f-last" placeholder="ישראלי">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="f-email">כתובת מייל *</label>
+            <input type="email" id="f-email" placeholder="you@example.com">
+          </div>
+
+          <div class="form-group">
+            <label>מסלול מבוקש</label>
+            <div class="plan-choice">
+              <div class="plan-option">
+                <input type="radio" name="plan" id="p-free" value="free" checked>
+                <label for="p-free">חינמי</label>
+              </div>
+              <div class="plan-option">
+                <input type="radio" name="plan" id="p-pro" value="pro">
+                <label for="p-pro">פרו ₪49</label>
+              </div>
+              <div class="plan-option">
+                <input type="radio" name="plan" id="p-agency" value="agency">
+                <label for="p-agency">סוכנות</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="f-role">תפקיד / עיסוק</label>
+            <select id="f-role">
+              <option value="">בחרו...</option>
+              <option>יוצר/ת תוכן</option>
+              <option>מנהל/ת שיווק</option>
+              <option>יזם/ית טכנולוגיה</option>
+              <option>סוכנות דיגיטל</option>
+              <option>מנהל/ת מוצר</option>
+              <option>אחר</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="f-msg">הודעה (אופציונלי)</label>
+            <textarea id="f-msg" placeholder="ספרו לנו קצת על הצרכים שלכם, או בקשו דוח לדוגמה..."></textarea>
+          </div>
+
+          <div class="form-check">
+            <input type="checkbox" id="f-consent" checked>
+            <label for="f-consent">אני מסכים/ה לקבל את הדוח השבועי של TopAgent Systems. ניתן לבטל בכל עת.</label>
+          </div>
+
+          <button type="submit" class="form-submit">שלחו והצטרפו לקהילה →</button>
+        </form>
+
+        <div class="form-success" id="form-success">
+          <div class="success-icon">🎉</div>
+          <h3>נרשמתם בהצלחה!</h3>
+          <p>הדוח הראשון שלכם יגיע ביום שני הקרוב לכתובת שהזנתם.<br>ברוכים הבאים לקהילת TopAgent Systems!</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- QUICK JOIN STRIP -->
+<section style="background:var(--lgrey)">
+  <div class="section-inner">
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px" class="reveal">
+      <div style="text-align:center;padding:28px">
+        <div style="font-size:2rem;margin-bottom:12px">⚡</div>
+        <h3 style="margin-bottom:8px">מהיר</h3>
+        <p style="font-size:0.88rem">ההצטרפות לוקחת 60 שניות. אין טפסים ארוכים.</p>
+      </div>
+      <div style="text-align:center;padding:28px">
+        <div style="font-size:2rem;margin-bottom:12px">🔒</div>
+        <h3 style="margin-bottom:8px">פרטי</h3>
+        <p style="font-size:0.88rem">המייל שלכם לא יועבר לאף גורם שלישי. אי פעם.</p>
+      </div>
+      <div style="text-align:center;padding:28px">
+        <div style="font-size:2rem;margin-bottom:12px">🎯</div>
+        <h3 style="margin-bottom:8px">ללא ספאם</h3>
+        <p style="font-size:0.88rem">דוח אחד בשבוע, יום שני בבוקר. זה הכל. ביטול בלחיצה.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <span class="logo-bolt"><svg viewBox="0 0 100 100"><polygon points="0,0 68,0 68,40 100,40 44,100 44,60 0,60" fill="#E63329"/></svg></span>
+          <span class="logo-text"><span class="logo-top">TOPAGENT</span><span class="logo-bot">Systems</span></span>
+        </a>
+        <p>ניתוח אוטומטי שבועי של נישת ה-AI/Tech ביוטיוב. מודיעין שוק ממשי לכל חבר קהילה.</p>
+      </div>
+      <div class="footer-col"><h4>ניווט</h4><ul><li><a href="index.html">בית</a></li><li><a href="weekly.html">דוח שבועי</a></li><li><a href="community.html">קהילה</a></li><li><a href="pricing.html">מחירים</a></li></ul></div>
+      <div class="footer-col"><h4>מותג</h4><ul><li><a href="brand_guidelines.html">Brand Guidelines</a></li><li><a href="pricing.html">חינמי</a></li><li><a href="pricing.html">פרו</a></li></ul></div>
+      <div class="footer-col"><h4>צרו קשר</h4><ul><li><a href="contact.html">טופס יצירת קשר</a></li><li><a href="mailto:neorai0801@gmail.com">neorai0801@gmail.com</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 TopAgent Systems. כל הזכויות שמורות.</span>
+      <div class="footer-badges"><span class="badge">100% Automated</span><span class="badge">Hebrew First</span><span class="badge">AI Powered</span></div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+document.getElementById('contact-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const name  = document.getElementById('f-name').value.trim();
+  const email = document.getElementById('f-email').value.trim();
+  if (!name || !email.includes('@')) {
+    if (!name)  document.getElementById('f-name').style.borderColor = 'var(--red)';
+    if (!email.includes('@')) document.getElementById('f-email').style.borderColor = 'var(--red)';
+    setTimeout(() => {
+      document.getElementById('f-name').style.borderColor = '';
+      document.getElementById('f-email').style.borderColor = '';
+    }, 2000);
+    return;
+  }
+  this.style.display = 'none';
+  document.getElementById('form-success').style.display = 'block';
+});
+</script>
+</body>
+</html>

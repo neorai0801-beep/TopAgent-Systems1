@@ -1,0 +1,12 @@
+{
+  "name": "topagent-systems-website",
+  "version": "1.0.0",
+  "description": "TopAgent Systems — AI Intelligence Community Website",
+  "type": "module",
+  "scripts": {
+    "dev": "node serve.mjs",
+    "screenshot": "node screenshot.mjs"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
