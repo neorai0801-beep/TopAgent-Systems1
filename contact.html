@@ -104,7 +104,7 @@
 .form-success p  { color: var(--dgrey); font-size: 0.92rem; }
 
 /* Plan options */
-.plan-choice { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 18px; }
+.plan-choice { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 18px; }
 .plan-option { }
 .plan-option input { display: none; }
 .plan-option label {
@@ -146,7 +146,7 @@
       <li><a href="weekly.html">דוח שבועי</a></li>
       <li><a href="community.html">פרויקטים</a></li>
       <li><a href="pricing.html">מחירים</a></li>
-      <li><a href="contact.html" class="nav-cta">הצטרפו</a></li>
+      <li><a href="contact.html" class="nav-cta">צרו קשר</a></li>
     </ul>
     <div class="nav-hamburger"><span></span><span></span><span></span></div>
   </div>
@@ -157,7 +157,7 @@
   <div class="page-hero-inner">
     <span class="section-tag" style="color:#ff7b73">צרו קשר</span>
     <h1>בואו נדבר</h1>
-    <p>הצטרפו לקהילה, שאלו שאלות, או בקשו דוח לדוגמה — נחזור אליכם תוך 24 שעות</p>
+    <p>שיחת ייעוץ ראשונית חינמית — נבין מה העסק שלכם צריך ונחזור עם הצעה מותאמת תוך 24 שעות</p>
   </div>
 </div>
 
@@ -184,7 +184,7 @@
           <div class="info-icon">💬</div>
           <div>
             <h4>WhatsApp</h4>
-            <p>חברי הקהילה הפרו מקבלים גישה ישירה לקבוצת WhatsApp הפרטית</p>
+            <p>מעדיפים הודעה ישירה? שלחו לנו ב-WhatsApp לייעוץ מהיר</p>
           </div>
         </div>
 
@@ -199,8 +199,8 @@
         <div class="info-item">
           <div class="info-icon">🎁</div>
           <div>
-            <h4>דוח לדוגמה — בחינם</h4>
-            <p>ציינו בטופס "דוח לדוגמה" ותקבלו דוח פרו מלא לשבוע האחרון — ללא התחייבות</p>
+            <h4>ייעוץ ראשוני — חינמי</h4>
+            <p>שיחה קצרה שבה נבין את הצרכים שלכם ונציע את הפתרון הנכון — ללא עלות וללא התחייבות</p>
           </div>
         </div>
 
@@ -212,8 +212,8 @@
 
       <!-- Right: Form -->
       <div class="contact-form reveal" id="form-wrap">
-        <h3>השאירו פרטים</h3>
-        <p>נחזור אליכם עם מידע מותאם לצרכים שלכם</p>
+        <h3>קבלו הצעת מחיר</h3>
+        <p>מלאו את הפרטים ונחזור אליכם תוך 24 שעות</p>
 
         <form id="contact-form" novalidate>
           <div class="form-row">
@@ -233,19 +233,23 @@
           </div>
 
           <div class="form-group">
-            <label>מסלול מבוקש</label>
+            <label>סוג השירות המבוקש</label>
             <div class="plan-choice">
               <div class="plan-option">
-                <input type="radio" name="plan" id="p-free" value="free" checked>
-                <label for="p-free">חינמי</label>
+                <input type="radio" name="plan" id="p-landing" value="landing" checked>
+                <label for="p-landing">דף נחיתה</label>
               </div>
               <div class="plan-option">
-                <input type="radio" name="plan" id="p-pro" value="pro">
-                <label for="p-pro">פרו ₪49</label>
+                <input type="radio" name="plan" id="p-basic" value="basic">
+                <label for="p-basic">אתר בסיסי</label>
               </div>
               <div class="plan-option">
-                <input type="radio" name="plan" id="p-agency" value="agency">
-                <label for="p-agency">סוכנות</label>
+                <input type="radio" name="plan" id="p-business" value="business">
+                <label for="p-business">אתר עסקי</label>
+              </div>
+              <div class="plan-option">
+                <input type="radio" name="plan" id="p-d3" value="d3">
+                <label for="p-d3">D3 מותאם</label>
               </div>
             </div>
           </div>
@@ -254,32 +258,36 @@
             <label for="f-role">תפקיד / עיסוק</label>
             <select id="f-role">
               <option value="">בחרו...</option>
-              <option>יוצר/ת תוכן</option>
-              <option>מנהל/ת שיווק</option>
-              <option>יזם/ית טכנולוגיה</option>
-              <option>סוכנות דיגיטל</option>
-              <option>מנהל/ת מוצר</option>
+              <option>בעל/ת עסק קטן / בינוני</option>
+              <option>בעל/ת מקצוע עצמאי</option>
+              <option>סטארטאפ / יזמות</option>
+              <option>מסעדה / קפה / מזון</option>
+              <option>קליניקה / רפואה / בריאות</option>
+              <option>נדל"ן / תיווך</option>
+              <option>אופנה / עיצוב / יופי</option>
+              <option>חינוך / קורסים / הדרכה</option>
+              <option>חברה / ארגון</option>
               <option>אחר</option>
             </select>
           </div>
 
           <div class="form-group">
             <label for="f-msg">הודעה (אופציונלי)</label>
-            <textarea id="f-msg" placeholder="ספרו לנו קצת על הצרכים שלכם, או בקשו דוח לדוגמה..."></textarea>
+            <textarea id="f-msg" placeholder="ספרו לנו על העסק שלכם — מה אתם צריכים, מה המטרה, ואיזה תקציב אתם חושבים עליו..."></textarea>
           </div>
 
           <div class="form-check">
             <input type="checkbox" id="f-consent" checked>
-            <label for="f-consent">אני מסכים/ה לקבל את הדוח השבועי של TopAgent Systems. ניתן לבטל בכל עת.</label>
+            <label for="f-consent">אני מסכים/ה שTopAgent Systems יצרו איתי קשר בנוגע לבקשתי. הפרטים שלי לא יועברו לגורם שלישי.</label>
           </div>
 
-          <button type="submit" class="form-submit">שלחו והצטרפו לקהילה →</button>
+          <button type="submit" class="form-submit">שלחו את הבקשה →</button>
         </form>
 
         <div class="form-success" id="form-success">
           <div class="success-icon">🎉</div>
-          <h3>נרשמתם בהצלחה!</h3>
-          <p>הדוח הראשון שלכם יגיע ביום שני הקרוב לכתובת שהזנתם.<br>ברוכים הבאים לקהילת TopAgent Systems!</p>
+          <h3>קיבלנו!</h3>
+          <p>נחזור אליכם תוך 24 שעות עם הצעת מחיר מותאמת.<br>בינתיים — תסתכלו על <a href="pricing.html" style="color:var(--red)">החבילות שלנו</a>.</p>
         </div>
       </div>
 
@@ -293,18 +301,18 @@
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px" class="reveal">
       <div style="text-align:center;padding:28px">
         <div style="font-size:2rem;margin-bottom:12px">⚡</div>
-        <h3 style="margin-bottom:8px">מהיר</h3>
-        <p style="font-size:0.88rem">ההצטרפות לוקחת 60 שניות. אין טפסים ארוכים.</p>
+        <h3 style="margin-bottom:8px">מענה תוך 24 שעות</h3>
+        <p style="font-size:0.88rem">מלאו את הטופס ונחזור אליכם עם הצעה מותאמת — מהר.</p>
       </div>
       <div style="text-align:center;padding:28px">
         <div style="font-size:2rem;margin-bottom:12px">🔒</div>
-        <h3 style="margin-bottom:8px">פרטי</h3>
-        <p style="font-size:0.88rem">המייל שלכם לא יועבר לאף גורם שלישי. אי פעם.</p>
+        <h3 style="margin-bottom:8px">פרטיות מלאה</h3>
+        <p style="font-size:0.88rem">הפרטים שלכם לא יועברו לאף גורם שלישי. אי פעם.</p>
       </div>
       <div style="text-align:center;padding:28px">
         <div style="font-size:2rem;margin-bottom:12px">🎯</div>
-        <h3 style="margin-bottom:8px">ללא ספאם</h3>
-        <p style="font-size:0.88rem">דוח אחד בשבוע, יום שני בבוקר. זה הכל. ביטול בלחיצה.</p>
+        <h3 style="margin-bottom:8px">ללא התחייבות</h3>
+        <p style="font-size:0.88rem">הייעוץ הראשוני חינמי לחלוטין — אין לחץ, אין עלות.</p>
       </div>
     </div>
   </div>
@@ -319,7 +327,7 @@
           <span class="logo-bolt"><svg viewBox="0 0 100 100"><polygon points="0,0 68,0 68,40 100,40 44,100 44,60 0,60" fill="#E63329"/></svg></span>
           <span class="logo-text"><span class="logo-top">TOPAGENT</span><span class="logo-bot">Systems</span></span>
         </a>
-        <p>ניתוח אוטומטי שבועי של נישת ה-AI/Tech ביוטיוב. מודיעין שוק ממשי לכל חבר קהילה.</p>
+        <p>בונים אתרים מקצועיים עם אוטומציות AI לעסקים בישראל — מהר, יפה, ועם תוצאות.</p>
       </div>
       <div class="footer-col"><h4>ניווט</h4><ul><li><a href="index.html">בית</a></li><li><a href="weekly.html">דוח שבועי</a></li><li><a href="community.html">פרויקטים</a></li><li><a href="pricing.html">מחירים</a></li></ul></div>
       <div class="footer-col"><h4>מותג</h4><ul><li><a href="brand_guidelines.html">Brand Guidelines</a></li><li><a href="pricing.html">חינמי</a></li><li><a href="pricing.html">פרו</a></li></ul></div>
