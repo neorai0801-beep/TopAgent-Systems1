@@ -9,7 +9,7 @@
 /* Pricing cards */
 .pricing-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 24px;
   margin-top: 56px;
   align-items: start;
@@ -145,6 +145,9 @@
 .check { color: var(--red); font-weight: 900; font-size: 1rem; }
 .cross { color: var(--mgrey); opacity: 0.4; }
 
+.price-range { font-size: 1rem; font-weight: 700; color: var(--mgrey); margin-bottom: 6px; }
+.price-range.featured { color: rgba(150,159,176,0.8); }
+
 @media (max-width: 900px) {
   .pricing-grid { grid-template-columns: 1fr; }
   .pricing-card.featured { transform: scale(1); }
@@ -177,7 +180,7 @@
   <div class="page-hero-inner">
     <span class="section-tag" style="color:#ff7b73">מחירים</span>
     <h1>פשוט. שקוף. ללא הפתעות.</h1>
-    <p>התחילו בחינם ושדרגו כשאתם מוכנים. בשום מסלול לא תצטרכו כרטיס אשראי להתחלה.</p>
+    <p>בחרו את החבילה המתאימה לכם — או צרו קשר וניבנה יחד את הפתרון המדויק לעסק שלכם.</p>
   </div>
 </div>
 
@@ -186,56 +189,66 @@
   <div class="section-inner">
     <div class="pricing-grid">
 
-      <!-- Free -->
+      <!-- דף נחיתה -->
       <div class="pricing-card reveal">
-        <div class="plan-name">חינמי</div>
-        <div class="plan-price"><span class="price-num">₪0</span><span class="price-period">/ לחודש</span></div>
-        <p class="plan-desc">לתחילת דרך — קבלו טעימה מהנתונים שאנחנו מנתחים כל שבוע.</p>
+        <div class="plan-name">דף נחיתה</div>
+        <div class="plan-price"><span class="price-num">₪800</span><span class="price-period">— 1,500</span></div>
+        <p class="plan-desc">פתרון מושלם לעסקים שמחפשים נוכחות דיגיטלית מהירה ואפקטיבית.</p>
         <ul class="plan-features">
-          <li>דוח שבועי מקוצר (3 עמודים)</li>
-          <li>Top 10 ערוצים שבועיים</li>
-          <li>נתוני engagement גולמיים</li>
-          <li class="no">המלצות actionable</li>
-          <li class="no">גרפים מלאים ו-KPIs</li>
-          <li class="no">גישה לארכיב דוחות</li>
-          <li class="no">קבוצת WhatsApp פרטית</li>
+          <li>עמוד אחד מעוצב</li>
+          <li>טופס יצירת קשר</li>
+          <li>אוטומציה בסיסית למייל</li>
+          <li>עיצוב רספונסיבי למובייל</li>
+          <li>מסירה תוך 7 ימי עבודה</li>
         </ul>
-        <a href="contact.html" class="plan-btn outline">התחילו בחינם</a>
+        <a href="contact.html" class="plan-btn outline">קבלו הצעת מחיר</a>
       </div>
 
-      <!-- Pro (featured) -->
+      <!-- אתר בסיסי -->
+      <div class="pricing-card reveal">
+        <div class="plan-name">אתר בסיסי</div>
+        <div class="plan-price"><span class="price-num">₪1,500</span><span class="price-period">— 3,000</span></div>
+        <p class="plan-desc">אתר מקצועי עם כל הדפים שעסק צריך כדי להציג את עצמו ברשת.</p>
+        <ul class="plan-features">
+          <li>3–5 עמודים</li>
+          <li>טופס יצירת קשר</li>
+          <li>אוטומציה בסיסית</li>
+          <li>עיצוב רספונסיבי למובייל</li>
+          <li>אופטימיזציה בסיסית ל-SEO</li>
+        </ul>
+        <a href="contact.html" class="plan-btn outline">קבלו הצעת מחיר</a>
+      </div>
+
+      <!-- אתר עסקי (featured) -->
       <div class="pricing-card featured reveal">
         <div class="pricing-label">הכי פופולרי</div>
-        <div class="plan-name featured">פרו</div>
-        <div class="plan-price"><span class="price-num featured">₪49</span><span class="price-period" style="color:var(--mgrey)">/ לחודש</span></div>
-        <p class="plan-desc featured">לאנשי מקצוע שרוצים מודיעין שוק מלא ותובנות actionable בכל שבוע.</p>
+        <div class="plan-name featured">אתר עסקי</div>
+        <div class="plan-price"><span class="price-num featured">₪3,000</span><span class="price-period" style="color:var(--mgrey)">— 5,000</span></div>
+        <p class="plan-desc featured">הפתרון המלא לעסקים שרוצים אוטומציה אמיתית וחיבור למערכות קיימות.</p>
         <ul class="plan-features featured">
-          <li>דוח שבועי מלא (9 עמודים)</li>
-          <li>Top 30+ ערוצים מנותחים</li>
-          <li>5 המלצות actionable שבועיות</li>
-          <li>גרפים מלאים, KPIs, מגמות</li>
-          <li>גישה לארכיב כל הדוחות</li>
-          <li>קבוצת WhatsApp פרטית</li>
-          <li>ייעוץ אישי חודשי (30 דקות)</li>
+          <li>5–10 עמודים</li>
+          <li>אוטומציות מתקדמות</li>
+          <li>חיבור ל-CRM</li>
+          <li>חיבור ל-Google Sheets</li>
+          <li>לוח בקרה לניהול תוכן</li>
+          <li>תמיכה שוטפת חודש ראשון</li>
         </ul>
-        <a href="contact.html" class="plan-btn solid">התחילו עכשיו →</a>
+        <a href="contact.html" class="plan-btn solid">קבלו הצעת מחיר →</a>
       </div>
 
-      <!-- Agency -->
+      <!-- אתר מותאם עם D3 -->
       <div class="pricing-card reveal">
-        <div class="plan-name">סוכנות</div>
-        <div class="plan-price"><span class="price-num">₪149</span><span class="price-period">/ לחודש</span></div>
-        <p class="plan-desc">לסוכנויות ועסקים שרוצים לשלב את הדוחות במסירת ערך ללקוחות.</p>
+        <div class="plan-name">אתר מותאם אישית + D3</div>
+        <div class="plan-price"><span class="price-num">₪4,000</span><span class="price-period">— 8,000</span></div>
+        <p class="plan-desc">אתר עם ויזואליזציות נתונים מיוחדות לעסקים שרוצים להרשים ולהמחיש מידע.</p>
         <ul class="plan-features">
-          <li>כל מה שב-Pro</li>
-          <li>White-label — לוגו שלכם על הדוח</li>
-          <li>עד 5 נמענים שונים</li>
-          <li>ניתוח ערוצים מותאם אישית</li>
-          <li>גישת API לנתונים גולמיים</li>
-          <li>תמיכה פרטית ב-Slack</li>
-          <li>SLA — מענה תוך שעה</li>
+          <li>אתר מלא מותאם אישית</li>
+          <li>ויזואליזציות D3.js אינטראקטיביות</li>
+          <li>גרפים ואינפוגרפיקה מיוחדים</li>
+          <li>עיצוב ייחודי מאפס</li>
+          <li>כל מה שב"אתר עסקי"</li>
         </ul>
-        <a href="contact.html" class="plan-btn outline">צרו קשר</a>
+        <a href="contact.html" class="plan-btn outline">קבלו הצעת מחיר</a>
       </div>
 
     </div>
@@ -253,22 +266,23 @@
       <table class="compare-table">
         <thead>
           <tr>
-            <th style="width:40%">פיצ'ר</th>
-            <th>חינמי</th>
-            <th style="background:rgba(230,51,41,0.06);color:var(--red)">פרו</th>
-            <th>סוכנות</th>
+            <th style="width:35%">מה כלול</th>
+            <th>דף נחיתה</th>
+            <th>אתר בסיסי</th>
+            <th style="background:rgba(230,51,41,0.06);color:var(--red)">אתר עסקי</th>
+            <th>D3 מותאם</th>
           </tr>
         </thead>
         <tbody>
-          <tr><td>דוח שבועי</td><td>3 עמודים</td><td style="background:rgba(230,51,41,0.04);font-weight:700">9 עמודים</td><td>9 עמודים</td></tr>
-          <tr><td>ערוצים מנותחים</td><td>Top 10</td><td style="background:rgba(230,51,41,0.04);font-weight:700">Top 30+</td><td>Top 30+ מותאם</td></tr>
-          <tr><td>המלצות actionable</td><td class="cross">—</td><td style="background:rgba(230,51,41,0.04)"><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
-          <tr><td>גרפים מלאים</td><td class="cross">—</td><td style="background:rgba(230,51,41,0.04)"><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
-          <tr><td>ארכיב דוחות</td><td class="cross">—</td><td style="background:rgba(230,51,41,0.04)"><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
-          <tr><td>קבוצת WhatsApp</td><td class="cross">—</td><td style="background:rgba(230,51,41,0.04)"><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
-          <tr><td>White-label לוגו</td><td class="cross">—</td><td style="background:rgba(230,51,41,0.04)" class="cross">—</td><td><span class="check">✓</span></td></tr>
-          <tr><td>גישת API</td><td class="cross">—</td><td style="background:rgba(230,51,41,0.04)" class="cross">—</td><td><span class="check">✓</span></td></tr>
-          <tr><td>ייעוץ אישי</td><td class="cross">—</td><td style="background:rgba(230,51,41,0.04)">חודשי</td><td>שבועי</td></tr>
+          <tr><td>מספר עמודים</td><td>1</td><td>3–5</td><td style="background:rgba(230,51,41,0.04);font-weight:700">5–10</td><td>ללא הגבלה</td></tr>
+          <tr><td>טופס יצירת קשר</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td style="background:rgba(230,51,41,0.04)"><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+          <tr><td>אוטומציה למייל</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td style="background:rgba(230,51,41,0.04)"><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+          <tr><td>אוטומציות מתקדמות</td><td class="cross">—</td><td class="cross">—</td><td style="background:rgba(230,51,41,0.04)"><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+          <tr><td>חיבור ל-CRM / Google Sheets</td><td class="cross">—</td><td class="cross">—</td><td style="background:rgba(230,51,41,0.04)"><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+          <tr><td>לוח בקרה לניהול תוכן</td><td class="cross">—</td><td class="cross">—</td><td style="background:rgba(230,51,41,0.04)"><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+          <tr><td>ויזואליזציות D3.js</td><td class="cross">—</td><td class="cross">—</td><td style="background:rgba(230,51,41,0.04)" class="cross">—</td><td><span class="check">✓</span></td></tr>
+          <tr><td>עיצוב ייחודי מאפס</td><td class="cross">—</td><td class="cross">—</td><td style="background:rgba(230,51,41,0.04)" class="cross">—</td><td><span class="check">✓</span></td></tr>
+          <tr><td>SEO בסיסי</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td style="background:rgba(230,51,41,0.04)"><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
         </tbody>
       </table>
     </div>
