@@ -3,88 +3,170 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TopAgent Systems — קהילה</title>
+<title>TopAgent Systems — תיק עבודות</title>
 <link rel="stylesheet" href="css/styles.css">
 <style>
-/* Members grid */
-.members-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 52px; }
-.member-card {
-  background: var(--white);
-  border-radius: 16px;
-  padding: 28px;
-  box-shadow: var(--shadow);
-  transition: transform 0.25s, box-shadow 0.25s;
-  position: relative;
-  overflow: hidden;
-}
-.member-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
-.member-card::before { content: '\201C'; position: absolute; top: 10px; right: 20px; font-size: 3.5rem; color: var(--red); opacity: 0.1; font-family: Georgia, serif; line-height: 1; }
-.member-text { font-size: 0.9rem; color: var(--dgrey); line-height: 1.7; margin-bottom: 22px; }
-.member-info { display: flex; align-items: center; gap: 12px; }
-.member-avatar {
-  width: 44px; height: 44px;
-  border-radius: 50%;
-  background: var(--navy);
-  display: flex; align-items: center; justify-content: center;
-  font-weight: 800; font-size: 0.9rem; color: var(--white); flex-shrink: 0;
-}
-.member-name { font-weight: 700; font-size: 0.9rem; }
-.member-role { font-size: 0.75rem; color: var(--mgrey); margin-top: 1px; }
 
-/* Benefits */
-.benefits-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 52px; }
-.benefit-item {
+/* Filter buttons */
+.filter-wrap {
   display: flex;
-  gap: 18px;
-  align-items: flex-start;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 48px 0 40px;
+}
+.filter-btn {
+  padding: 9px 22px;
+  border-radius: 100px;
+  border: 1.5px solid rgba(11,27,58,0.15);
+  background: transparent;
+  color: var(--navy);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+.filter-btn:hover { border-color: var(--navy); background: rgba(11,27,58,0.04); }
+.filter-btn.active { background: var(--navy); color: var(--white); border-color: var(--navy); }
+
+/* Portfolio grid */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+/* Project card */
+.project-card {
   background: var(--white);
-  border-radius: 14px;
-  padding: 24px;
-  box-shadow: 0 2px 12px rgba(11,27,58,0.06);
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1.5px solid rgba(11,27,58,0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
 }
-.benefit-icon { width: 46px; height: 46px; background: var(--navy); border-radius: 11px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; }
-.benefit-item h3 { font-size: 1rem; margin-bottom: 7px; }
-.benefit-item p  { font-size: 0.86rem; }
+.project-card:hover { transform: translateY(-6px); box-shadow: 0 16px 48px rgba(11,27,58,0.13); }
 
-/* Community stats */
-.comm-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 48px; }
-.comm-stat-card {
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 14px;
-  padding: 28px;
-  text-align: center;
-}
-.comm-stat-num { font-size: 2rem; font-weight: 900; color: var(--white); font-family: 'Courier New', monospace; }
-.comm-stat-num em { color: var(--red); font-style: normal; }
-.comm-stat-lbl { font-size: 0.78rem; color: var(--mgrey); margin-top: 5px; }
-
-/* Who's in the community */
-.profiles-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: 48px; }
-.profile-card {
-  background: var(--lgrey);
-  border-radius: 14px;
-  padding: 22px 18px;
-  text-align: center;
-  transition: transform 0.2s;
-}
-.profile-card:hover { transform: translateY(-3px); }
-.profile-emoji { font-size: 2.2rem; margin-bottom: 10px; }
-.profile-type { font-size: 0.9rem; font-weight: 700; margin-bottom: 5px; }
-.profile-desc { font-size: 0.78rem; color: var(--mgrey); line-height: 1.5; }
-
-/* Join strip */
-.join-strip {
-  background: linear-gradient(135deg, var(--navy), var(--navy-l));
-  border-radius: 20px;
-  padding: 48px;
-  text-align: center;
-  border: 1px solid rgba(255,255,255,0.08);
+/* Mock browser window */
+.mock-browser {
+  height: 200px;
   position: relative;
   overflow: hidden;
-  margin-top: 56px;
 }
-.join-strip::before {
+.mock-browser-bar {
+  background: rgba(0,0,0,0.15);
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  position: relative;
+  z-index: 1;
+}
+.mock-dot-b { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.4); }
+.mock-url-bar {
+  flex: 1;
+  height: 16px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 4px;
+  margin: 0 8px;
+}
+.mock-screen {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 32px 20px 16px;
+  gap: 8px;
+}
+.mock-line { border-radius: 3px; background: rgba(255,255,255,0.25); }
+.mock-line.title { height: 14px; width: 60%; background: rgba(255,255,255,0.5); }
+.mock-line.sub   { height: 8px; width: 80%; }
+.mock-line.short { height: 8px; width: 45%; }
+.mock-btn-mock   { height: 28px; width: 110px; border-radius: 100px; background: rgba(255,255,255,0.35); margin-top: 4px; }
+
+/* Gradient themes per card */
+.grad-blue    { background: linear-gradient(135deg, #1a3a6b 0%, #2d6bbf 100%); }
+.grad-green   { background: linear-gradient(135deg, #0d4f3c 0%, #1a8c66 100%); }
+.grad-purple  { background: linear-gradient(135deg, #2d1b69 0%, #7b4fd4 100%); }
+.grad-red     { background: linear-gradient(135deg, #7a1010 0%, #E63329 100%); }
+.grad-dark    { background: linear-gradient(135deg, #0B1B3A 0%, #1e3a6e 100%); }
+.grad-teal    { background: linear-gradient(135deg, #0a3d4a 0%, #0e8fad 100%); }
+
+/* Card body */
+.project-body { padding: 22px 24px 24px; }
+.project-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; margin-bottom: 10px; }
+.project-name { font-size: 1.05rem; font-weight: 800; color: var(--navy); }
+.project-cat {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 4px 11px;
+  border-radius: 100px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.cat-landing  { background: rgba(11,27,58,0.07);  color: var(--navy); }
+.cat-basic    { background: rgba(39,174,96,0.12);  color: #1a8c66; }
+.cat-business { background: rgba(230,51,41,0.1);   color: var(--red); }
+.cat-d3       { background: rgba(123,79,212,0.12); color: #7b4fd4; }
+
+.project-desc { font-size: 0.86rem; color: var(--dgrey); line-height: 1.65; margin-bottom: 18px; }
+
+.project-footer { display: flex; align-items: center; justify-content: space-between; }
+.project-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+.ptag { font-size: 0.68rem; background: var(--lgrey); color: var(--navy); padding: 3px 9px; border-radius: 100px; font-weight: 600; }
+
+.btn-project {
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 8px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.2s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.btn-project.coming {
+  background: var(--lgrey);
+  color: var(--mgrey);
+  cursor: default;
+}
+.btn-project.live {
+  background: var(--navy);
+  color: var(--white);
+}
+.btn-project.live:hover { background: var(--red); }
+
+/* Coming soon overlay */
+.coming-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: rgba(11,27,58,0.75);
+  backdrop-filter: blur(4px);
+  color: rgba(255,255,255,0.85);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 100px;
+  border: 1px solid rgba(255,255,255,0.15);
+}
+
+/* CTA strip */
+.portfolio-cta {
+  background: var(--navy);
+  border-radius: 20px;
+  padding: 52px 40px;
+  text-align: center;
+  margin-top: 64px;
+  border: 1px solid rgba(255,255,255,0.07);
+  position: relative;
+  overflow: hidden;
+}
+.portfolio-cta::before {
   content: '';
   position: absolute;
   top: 50%; left: 50%;
@@ -92,15 +174,44 @@
   width: 500px; height: 300px;
   background: radial-gradient(ellipse, rgba(230,51,41,0.12), transparent 65%);
 }
-.join-strip h2 { color: var(--white); margin-bottom: 14px; position: relative; z-index: 1; }
-.join-strip p  { color: var(--mgrey); margin-bottom: 28px; position: relative; z-index: 1; }
-.join-strip .btn-primary { position: relative; z-index: 1; }
+.portfolio-cta h2 { color: var(--white); margin-bottom: 14px; position: relative; z-index: 1; }
+.portfolio-cta p  { color: var(--mgrey); margin-bottom: 28px; font-size: 1rem; position: relative; z-index: 1; }
+.portfolio-cta .btn-primary { position: relative; z-index: 1; }
+
+/* Process strip */
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 52px;
+}
+.process-card {
+  text-align: center;
+  padding: 28px 20px;
+  background: var(--white);
+  border-radius: 16px;
+  border: 1.5px solid rgba(11,27,58,0.07);
+  transition: border-color 0.25s, transform 0.25s;
+}
+.process-card:hover { border-color: rgba(11,27,58,0.2); transform: translateY(-3px); }
+.process-num {
+  font-size: 2rem; font-weight: 900;
+  font-family: 'Courier New', monospace;
+  color: var(--red); opacity: 0.2;
+  line-height: 1; margin-bottom: 12px;
+}
+.process-card h3 { font-size: 0.95rem; margin-bottom: 8px; }
+.process-card p  { font-size: 0.82rem; color: var(--dgrey); line-height: 1.6; }
 
 @media (max-width: 900px) {
-  .members-grid   { grid-template-columns: 1fr; }
-  .benefits-grid  { grid-template-columns: 1fr; }
-  .comm-stats     { grid-template-columns: repeat(2, 1fr); }
-  .profiles-grid  { grid-template-columns: repeat(2, 1fr); }
+  .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+  .process-grid   { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .portfolio-grid { grid-template-columns: 1fr; }
+  .process-grid   { grid-template-columns: 1fr; }
+  .filter-wrap    { gap: 8px; }
+  .filter-btn     { font-size: 0.78rem; padding: 7px 16px; }
 }
 </style>
 </head>
@@ -115,10 +226,10 @@
     </a>
     <ul class="nav-links">
       <li><a href="index.html">בית</a></li>
-      <li><a href="weekly.html">דוח שבועי</a></li>
-      <li><a href="community.html">קהילה</a></li>
+      <li><a href="weekly.html">שבועון</a></li>
+      <li><a href="community.html">עבודות</a></li>
       <li><a href="pricing.html">מחירים</a></li>
-      <li><a href="contact.html" class="nav-cta">הצטרפו</a></li>
+      <li><a href="contact.html" class="nav-cta">צרו קשר</a></li>
     </ul>
     <div class="nav-hamburger"><span></span><span></span><span></span></div>
   </div>
@@ -127,131 +238,234 @@
 <!-- PAGE HERO -->
 <div class="page-hero">
   <div class="page-hero-inner">
-    <span class="section-tag" style="color:#ff7b73">הקהילה</span>
-    <h1>קהילה של מובילי AI</h1>
-    <p>מאה+ אנשים שמשתמשים בנתונים כדי לקבל החלטות חכמות יותר — יוצרי תוכן, יזמים, ומנהלים</p>
+    <span class="section-tag" style="color:#ff7b73">הפרויקטים שלנו</span>
+    <h1>תיק עבודות</h1>
+    <p>אתרים, אוטומציות, וויזואליזציות שבנינו לעסקים — כל פרויקט עם מטרה ברורה ותוצאות מדידות</p>
   </div>
 </div>
 
-<!-- COMMUNITY STATS -->
-<section style="background:var(--navy)">
-  <div class="section-inner">
-    <div class="comm-stats">
-      <div class="comm-stat-card reveal"><div class="comm-stat-num">100<em>+</em></div><div class="comm-stat-lbl">חברי קהילה פעילים</div></div>
-      <div class="comm-stat-card reveal"><div class="comm-stat-num">52</div><div class="comm-stat-lbl">דוחות שנשלחו ב-2026</div></div>
-      <div class="comm-stat-card reveal"><div class="comm-stat-num">4.8<em>/5</em></div><div class="comm-stat-lbl">דירוג ממוצע מחברים</div></div>
-      <div class="comm-stat-card reveal"><div class="comm-stat-num">0<em>₪</em></div><div class="comm-stat-lbl">עלות להצטרפות</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- WHO IS IT FOR -->
+<!-- PORTFOLIO -->
 <section style="background:var(--lgrey)">
   <div class="section-inner">
-    <div class="reveal text-center">
-      <span class="section-tag">מי הקהילה</span>
-      <h2 class="section-title">בשביל מי TopAgent Systems?</h2>
-      <p class="section-sub" style="margin:0 auto">הקהילה מורכבת מאנשים שרוצים נתונים אמיתיים על עולם ה-AI ביוטיוב</p>
+
+    <!-- Filters -->
+    <div class="filter-wrap reveal">
+      <button class="filter-btn active" data-filter="all">הכל</button>
+      <button class="filter-btn" data-filter="landing">דף נחיתה</button>
+      <button class="filter-btn" data-filter="basic">אתר בסיסי</button>
+      <button class="filter-btn" data-filter="business">אתר עסקי</button>
+      <button class="filter-btn" data-filter="d3">D3 ויזואליזציות</button>
     </div>
-    <div class="profiles-grid">
-      <div class="profile-card reveal">
-        <div class="profile-emoji">🎬</div>
-        <div class="profile-type">יוצרי תוכן AI</div>
-        <div class="profile-desc">שרוצים לדעת מה עובד לפני שיעלו את הסרטון הבא</div>
+
+    <!-- Grid -->
+    <div class="portfolio-grid">
+
+      <!-- Card 1 -->
+      <div class="project-card reveal" data-cat="landing">
+        <div class="mock-browser grad-blue">
+          <div class="mock-browser-bar">
+            <div class="mock-dot-b"></div><div class="mock-dot-b"></div><div class="mock-dot-b"></div>
+            <div class="mock-url-bar"></div>
+          </div>
+          <div class="mock-screen">
+            <div class="mock-line title"></div>
+            <div class="mock-line sub"></div>
+            <div class="mock-line short"></div>
+            <div class="mock-btn-mock"></div>
+          </div>
+          <div class="coming-badge">בקרוב</div>
+        </div>
+        <div class="project-body">
+          <div class="project-top">
+            <div class="project-name">דף נחיתה לעסק מקומי</div>
+            <span class="project-cat cat-landing">דף נחיתה</span>
+          </div>
+          <p class="project-desc">דף נחיתה ממוקד עם טופס לידים ואוטומציה למייל — מסירה תוך 7 ימים.</p>
+          <div class="project-footer">
+            <div class="project-tags"><span class="ptag">HTML/CSS</span><span class="ptag">אוטומציה</span></div>
+            <span class="btn-project coming">בקרוב</span>
+          </div>
+        </div>
       </div>
-      <div class="profile-card reveal">
-        <div class="profile-emoji">🚀</div>
-        <div class="profile-type">יזמי טכנולוגיה</div>
-        <div class="profile-desc">שמשתמשים בנתונים לקביעת אסטרטגיית תוכן שיווקי</div>
+
+      <!-- Card 2 -->
+      <div class="project-card reveal" data-cat="basic">
+        <div class="mock-browser grad-green">
+          <div class="mock-browser-bar">
+            <div class="mock-dot-b"></div><div class="mock-dot-b"></div><div class="mock-dot-b"></div>
+            <div class="mock-url-bar"></div>
+          </div>
+          <div class="mock-screen">
+            <div class="mock-line title"></div>
+            <div class="mock-line sub"></div>
+            <div class="mock-line short"></div>
+            <div class="mock-btn-mock"></div>
+          </div>
+          <div class="coming-badge">בקרוב</div>
+        </div>
+        <div class="project-body">
+          <div class="project-top">
+            <div class="project-name">אתר תדמית לחברת ייעוץ</div>
+            <span class="project-cat cat-basic">אתר בסיסי</span>
+          </div>
+          <p class="project-desc">5 עמודים עם SEO, טופס קשר, ואוטומציה בסיסית לניהול פניות.</p>
+          <div class="project-footer">
+            <div class="project-tags"><span class="ptag">HTML/CSS</span><span class="ptag">SEO</span></div>
+            <span class="btn-project coming">בקרוב</span>
+          </div>
+        </div>
       </div>
-      <div class="profile-card reveal">
-        <div class="profile-emoji">📊</div>
-        <div class="profile-type">מנהלי שיווק</div>
-        <div class="profile-desc">שמחפשים מודיעין שוק ותובנות על מתחרים בנישת ה-AI</div>
+
+      <!-- Card 3 -->
+      <div class="project-card reveal" data-cat="business">
+        <div class="mock-browser grad-red">
+          <div class="mock-browser-bar">
+            <div class="mock-dot-b"></div><div class="mock-dot-b"></div><div class="mock-dot-b"></div>
+            <div class="mock-url-bar"></div>
+          </div>
+          <div class="mock-screen">
+            <div class="mock-line title"></div>
+            <div class="mock-line sub"></div>
+            <div class="mock-line short"></div>
+            <div class="mock-btn-mock"></div>
+          </div>
+          <div class="coming-badge">בקרוב</div>
+        </div>
+        <div class="project-body">
+          <div class="project-top">
+            <div class="project-name">אתר עסקי + חיבור CRM</div>
+            <span class="project-cat cat-business">אתר עסקי</span>
+          </div>
+          <p class="project-desc">10 עמודים, אוטומציות מתקדמות וחיבור ל-CRM לניהול לידים אוטומטי.</p>
+          <div class="project-footer">
+            <div class="project-tags"><span class="ptag">CRM</span><span class="ptag">Make.com</span></div>
+            <span class="btn-project coming">בקרוב</span>
+          </div>
+        </div>
       </div>
-      <div class="profile-card reveal">
-        <div class="profile-emoji">🏢</div>
-        <div class="profile-type">סוכנויות דיגיטל</div>
-        <div class="profile-desc">שרוצים להציג ערך ללקוחות עם דוחות מקצועיים וממותגים</div>
+
+      <!-- Card 4 -->
+      <div class="project-card reveal" data-cat="d3">
+        <div class="mock-browser grad-purple">
+          <div class="mock-browser-bar">
+            <div class="mock-dot-b"></div><div class="mock-dot-b"></div><div class="mock-dot-b"></div>
+            <div class="mock-url-bar"></div>
+          </div>
+          <div class="mock-screen">
+            <div class="mock-line title"></div>
+            <div class="mock-line sub"></div>
+            <div class="mock-line short"></div>
+            <div class="mock-btn-mock"></div>
+          </div>
+          <div class="coming-badge">בקרוב</div>
+        </div>
+        <div class="project-body">
+          <div class="project-top">
+            <div class="project-name">דאשבורד נתונים אינטראקטיבי</div>
+            <span class="project-cat cat-d3">D3 ויזואליזציות</span>
+          </div>
+          <p class="project-desc">ויזואליזציות D3.js אינטראקטיביות שמציגות נתוני עסק בצורה ברורה ומרשימה.</p>
+          <div class="project-footer">
+            <div class="project-tags"><span class="ptag">D3.js</span><span class="ptag">JavaScript</span></div>
+            <span class="btn-project coming">בקרוב</span>
+          </div>
+        </div>
       </div>
+
+      <!-- Card 5 -->
+      <div class="project-card reveal" data-cat="business">
+        <div class="mock-browser grad-dark">
+          <div class="mock-browser-bar">
+            <div class="mock-dot-b"></div><div class="mock-dot-b"></div><div class="mock-dot-b"></div>
+            <div class="mock-url-bar"></div>
+          </div>
+          <div class="mock-screen">
+            <div class="mock-line title"></div>
+            <div class="mock-line sub"></div>
+            <div class="mock-line short"></div>
+            <div class="mock-btn-mock"></div>
+          </div>
+          <div class="coming-badge">בקרוב</div>
+        </div>
+        <div class="project-body">
+          <div class="project-top">
+            <div class="project-name">אתר + Google Sheets אוטומציה</div>
+            <span class="project-cat cat-business">אתר עסקי</span>
+          </div>
+          <p class="project-desc">כל ליד שמגיע מהאתר נרשם אוטומטית ל-Google Sheets עם פרטים מלאים.</p>
+          <div class="project-footer">
+            <div class="project-tags"><span class="ptag">Sheets</span><span class="ptag">אוטומציה</span></div>
+            <span class="btn-project coming">בקרוב</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="project-card reveal" data-cat="landing">
+        <div class="mock-browser grad-teal">
+          <div class="mock-browser-bar">
+            <div class="mock-dot-b"></div><div class="mock-dot-b"></div><div class="mock-dot-b"></div>
+            <div class="mock-url-bar"></div>
+          </div>
+          <div class="mock-screen">
+            <div class="mock-line title"></div>
+            <div class="mock-line sub"></div>
+            <div class="mock-line short"></div>
+            <div class="mock-btn-mock"></div>
+          </div>
+          <div class="coming-badge">בקרוב</div>
+        </div>
+        <div class="project-body">
+          <div class="project-top">
+            <div class="project-name">דף נחיתה לקורס דיגיטלי</div>
+            <span class="project-cat cat-landing">דף נחיתה</span>
+          </div>
+          <p class="project-desc">דף נחיתה ממיר עם וידאו, המלצות, וטופס רישום אוטומטי למיילים.</p>
+          <div class="project-footer">
+            <div class="project-tags"><span class="ptag">המרות</span><span class="ptag">מיילים</span></div>
+            <span class="btn-project coming">בקרוב</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="portfolio-cta reveal">
+      <h2>רוצים שנבנה לכם את הבא?</h2>
+      <p>צרו קשר לשיחת ייעוץ חינמית — נבין מה אתם צריכים ונחזור עם הצעת מחיר תוך 24 שעות.</p>
+      <a href="contact.html" class="btn-primary">קבלו הצעת מחיר בחינם →</a>
     </div>
   </div>
 </section>
 
-<!-- BENEFITS -->
+<!-- PROCESS -->
 <section style="background:var(--white)">
   <div class="section-inner">
-    <div class="reveal">
-      <span class="section-tag">יתרונות חברות</span>
-      <h2 class="section-title">מה מקבלים כחברי קהילה</h2>
-    </div>
-    <div class="benefits-grid">
-      <div class="benefit-item reveal">
-        <div class="benefit-icon">📧</div>
-        <div><h3>דוח שבועי למייל</h3><p>כל שני בבוקר מגיע ל-inbox PDF מקצועי עם כל הנתונים של שבוע קודם — ללא מאמץ.</p></div>
-      </div>
-      <div class="benefit-item reveal">
-        <div class="benefit-icon">🔓</div>
-        <div><h3>גישה לארכיב כל הדוחות</h3><p>גישה לכל הדוחות הקודמים — עקבו אחרי מגמות לאורך זמן וראו איך השוק השתנה.</p></div>
-      </div>
-      <div class="benefit-item reveal">
-        <div class="benefit-icon">💬</div>
-        <div><h3>גישה לקהילה הפרטית</h3><p>קבוצת WhatsApp פרטית שבה החברים מחליפים תובנות, שאלות, ורעיונות על בסיס הדוחות.</p></div>
-      </div>
-      <div class="benefit-item reveal">
-        <div class="benefit-icon">🎯</div>
-        <div><h3>5 המלצות שבועיות</h3><p>לא רק נתונים — כל דוח כולל 5 המלצות ספציפיות שאפשר ליישם מיד: תזמון, כותרות, נושאים.</p></div>
-      </div>
-      <div class="benefit-item reveal">
-        <div class="benefit-icon">📈</div>
-        <div><h3>עדיפות לתכונות חדשות</h3><p>חברי קהילה מקבלים גישה ראשונה לכלים ופיצ'רים חדשים לפני שמשוחררים לציבור הרחב.</p></div>
-      </div>
-      <div class="benefit-item reveal">
-        <div class="benefit-icon">🤝</div>
-        <div><h3>ייעוץ אישי חודשי</h3><p>פגישה קצרה חודשית עם מייסד הקהילה לדיון על האסטרטגיה שלכם על בסיס הנתונים.</p></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section style="background:var(--lgrey)">
-  <div class="section-inner">
     <div class="reveal text-center">
-      <span class="section-tag">מה אומרים</span>
-      <h2 class="section-title">החברים מדברים</h2>
+      <span class="section-tag">איך אנחנו עובדים</span>
+      <h2 class="section-title">מרעיון לאתר חי — תוך שבוע</h2>
     </div>
-    <div class="members-grid">
-      <div class="member-card reveal">
-        <p class="member-text">"לפני TopAgent Systems הייתי מבזבז שעות כל שבוע על ניתוח ידני של מתחרים. עכשיו הדוח מחכה לי בתיבה כל שני ואני מתרכז ביצירת תוכן."</p>
-        <div class="member-info"><div class="member-avatar">ד</div><div><div class="member-name">דניאל כהן</div><div class="member-role">יוצר תוכן AI · 45K עוקבים</div></div></div>
+    <div class="process-grid">
+      <div class="process-card reveal">
+        <div class="process-num">01</div>
+        <h3>שיחת ייעוץ</h3>
+        <p>מבינים את העסק, הקהל, והמטרות — ומסכמים מה בדיוק בונים.</p>
       </div>
-      <div class="member-card reveal">
-        <p class="member-text">"הדוח הממותג שאני מקבל כל שבוע הוא כלי שיווקי מדהים. אני שולח אותו ישירות ללקוחות שלי ונראה כמו מומחה עם מחקר מעמיק ועדכני."</p>
-        <div class="member-info"><div class="member-avatar">מ</div><div><div class="member-name">מיכל לוי</div><div class="member-role">מנהלת שיווק דיגיטלי</div></div></div>
+      <div class="process-card reveal">
+        <div class="process-num">02</div>
+        <h3>עיצוב ופיתוח</h3>
+        <p>בונים מהר ובצורה מקצועית — עם עדכונים שוטפים לאורך הדרך.</p>
       </div>
-      <div class="member-card reveal">
-        <p class="member-text">"ה-insight שקיבלתי על תזמון העלאות שינה לחלוטין את האסטרטגיה שלי. העלאה ביום שלישי העלתה את הצפיות שלי ב-40% תוך חודש."</p>
-        <div class="member-info"><div class="member-avatar">א</div><div><div class="member-name">אבי שמעון</div><div class="member-role">יזם טכנולוגיה · סטארטאפ AI</div></div></div>
+      <div class="process-card reveal">
+        <div class="process-num">03</div>
+        <h3>אוטומציות</h3>
+        <p>מחברים טפסים, מיילים, ומערכות — הכל עובד לבד מהרגע הראשון.</p>
       </div>
-      <div class="member-card reveal">
-        <p class="member-text">"היכולת לראות ערוצים מתחרים מנוהלים בדוח אחד שבועי חסכה לנו כשעתיים של עבודת מחקר ידנית בכל שבוע."</p>
-        <div class="member-info"><div class="member-avatar">ר</div><div><div class="member-name">רון ברג</div><div class="member-role">מנהל תוכן · SaaS Company</div></div></div>
+      <div class="process-card reveal">
+        <div class="process-num">04</div>
+        <h3>מסירה ותמיכה</h3>
+        <p>מוסרים, מסבירים, ונשארים זמינים — לא נעלמים אחרי ההשקה.</p>
       </div>
-      <div class="member-card reveal">
-        <p class="member-text">"אני משתמש בנתונים מהדוח כבסיס לכל ישיבת אסטרטגיה עם הלקוחות שלי. זה מוסיף אמינות ומקצועיות שאי אפשר לשים עליה מחיר."</p>
-        <div class="member-info"><div class="member-avatar">נ</div><div><div class="member-name">נדב אלוני</div><div class="member-role">יועץ אסטרטגיה דיגיטלית</div></div></div>
-      </div>
-      <div class="member-card reveal">
-        <p class="member-text">"הצטרפתי בספקנות — לא האמנתי שדוח אוטומטי יוכל להחליף מחקר ידני. טעיתי. הנתונים מדויקים והתובנות actionable ממש."</p>
-        <div class="member-info"><div class="member-avatar">ש</div><div><div class="member-name">שיר הרוש</div><div class="member-role">יוצרת תוכן AI · 12K עוקבים</div></div></div>
-      </div>
-    </div>
-
-    <div class="join-strip reveal">
-      <h2>מוכנים להצטרף?</h2>
-      <p>הצטרפות חינמית. דוח ראשון מגיע ביום שני הקרוב.</p>
-      <a href="contact.html" class="btn-primary">הצטרפו לקהילה →</a>
     </div>
   </div>
 </section>
@@ -265,10 +479,10 @@
           <span class="logo-bolt"><svg viewBox="0 0 100 100"><polygon points="0,0 68,0 68,40 100,40 44,100 44,60 0,60" fill="#E63329"/></svg></span>
           <span class="logo-text"><span class="logo-top">TOPAGENT</span><span class="logo-bot">Systems</span></span>
         </a>
-        <p>ניתוח אוטומטי שבועי של נישת ה-AI/Tech ביוטיוב. מודיעין שוק ממשי לכל חבר קהילה.</p>
+        <p>בונים אתרים מקצועיים עם אוטומציות AI לעסקים בישראל — מהר, יפה, ועם תוצאות.</p>
       </div>
-      <div class="footer-col"><h4>ניווט</h4><ul><li><a href="index.html">בית</a></li><li><a href="weekly.html">דוח שבועי</a></li><li><a href="community.html">קהילה</a></li><li><a href="pricing.html">מחירים</a></li></ul></div>
-      <div class="footer-col"><h4>מותג</h4><ul><li><a href="brand_guidelines.html">Brand Guidelines</a></li><li><a href="weekly.html">דוח שבועי</a></li><li><a href="weekly.html#channels">מפת ערוצים</a></li></ul></div>
+      <div class="footer-col"><h4>ניווט</h4><ul><li><a href="index.html">בית</a></li><li><a href="weekly.html">שבועון</a></li><li><a href="community.html">עבודות</a></li><li><a href="pricing.html">מחירים</a></li></ul></div>
+      <div class="footer-col"><h4>שירותים</h4><ul><li><a href="pricing.html">דף נחיתה</a></li><li><a href="pricing.html">אתר בסיסי</a></li><li><a href="pricing.html">אתר עסקי</a></li><li><a href="pricing.html">D3 ויזואליזציות</a></li></ul></div>
       <div class="footer-col"><h4>צרו קשר</h4><ul><li><a href="contact.html">טופס יצירת קשר</a></li><li><a href="mailto:neorai0801@gmail.com">neorai0801@gmail.com</a></li></ul></div>
     </div>
     <div class="footer-bottom">
@@ -279,5 +493,22 @@
 </footer>
 
 <script src="js/main.js"></script>
+<script>
+// Filter logic
+const btns = document.querySelectorAll('.filter-btn');
+const cards = document.querySelectorAll('.project-card');
+
+btns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    btns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const filter = btn.dataset.filter;
+    cards.forEach(card => {
+      const show = filter === 'all' || card.dataset.cat === filter;
+      card.style.display = show ? '' : 'none';
+    });
+  });
+});
+</script>
 </body>
 </html>
